@@ -21,5 +21,10 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-:set number
+
 Plugin 'vim-airline/vim-airline'
+:set number
+syntax on
+"read additional colorscheme
+
+colorscheme twilight256 
