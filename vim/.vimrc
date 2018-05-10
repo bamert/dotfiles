@@ -23,8 +23,11 @@ filetype plugin indent on    " required
 
 
 Plugin 'vim-airline/vim-airline'
+let g_airline_powerline_fonts = 1
 :set number
 syntax on
 "read additional colorscheme
 
-colorscheme twilight256 
+colorscheme twilight256
+"reduce the delay that happens when leaving insert mode:
+set timeoutlen=1000 ttimeoutlen=10
