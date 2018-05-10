@@ -31,3 +31,11 @@ syntax on
 colorscheme twilight256
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
+"plugin that does automatic code format
+Plugin 'chiel92/vim-autoformat'
+"for doxygen headers
+Plugin 'DoxygenToolkit.vim'
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
+set expandtab
