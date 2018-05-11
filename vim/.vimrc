@@ -39,3 +39,9 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+"NERDTree,what else
+Plugin 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
+"tagbar (class overview)
+Plugin 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
