@@ -63,4 +63,11 @@ set cursorline
 :hi CursorLine   cterm=NONE ctermbg=234
 :hi CursorLineNr term=bold ctermfg=160 
 ":hi CursorColumn cterm=NONE ctermbg=#172 ctermfg=white guibg=darkred guifg=white
+"
+
+"Async jobs
+Plugin 'skywind3000/asyncrun.vim'
+"find cmake dir automaticaly
+Plugin 'vhdirk/vim-cmake'
+
 ":nnoremap <Leader>c :set cursorline!<CR>
