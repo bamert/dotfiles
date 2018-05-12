@@ -57,3 +57,10 @@ map <C-n> :NERDTreeToggle<CR>
 "tagbar (class overview)
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
+
+"Highlighting the current line:
+set cursorline
+:hi CursorLine   cterm=NONE ctermbg=234
+:hi CursorLineNr term=bold ctermfg=160 
+":hi CursorColumn cterm=NONE ctermbg=#172 ctermfg=white guibg=darkred guifg=white
+":nnoremap <Leader>c :set cursorline!<CR>
