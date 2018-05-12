@@ -39,7 +39,7 @@ let g:airline#extesions#branch#enabled=1
 :set number
 syntax on
 "read additional colorscheme
-
+Plugin 'flazz/vim-colorschemes'
 colorscheme twilight256
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
