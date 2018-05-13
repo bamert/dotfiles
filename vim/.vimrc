@@ -32,7 +32,8 @@ let g:airline_theme = 'powerlineish'
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extesions#branch#enabled=1
 
-
+"should let me see git status in airline:
+Plugin 'tpope/vim-fugitive'
 
 
 
