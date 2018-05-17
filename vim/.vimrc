@@ -55,6 +55,9 @@ set expandtab
 "NERDTree,what else
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
+"enables quick (un)commenting of lines
+Plugin 'scrooloose/nerdcommenter'
+
 "tagbar (class overview)
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
@@ -72,3 +75,5 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'vhdirk/vim-cmake'
 
 ":nnoremap <Leader>c :set cursorline!<CR>
+"show .cl file with cpp syntax
+autocmd BufNewFile,BufRead *.cl set syntax=c
