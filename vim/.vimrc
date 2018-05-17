@@ -46,6 +46,9 @@ colorscheme twilight256
 set timeoutlen=1000 ttimeoutlen=10
 "plugin that does automatic code format
 Plugin 'chiel92/vim-autoformat'
+let g:formatprg_cs = "astyle --style=google"
+noremap <F3> :Autoformat<CR>
+
 "for doxygen headers
 Plugin 'DoxygenToolkit.vim'
 filetype plugin indent on
