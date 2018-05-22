@@ -42,6 +42,10 @@ syntax on
 "read additional colorscheme
 Plugin 'flazz/vim-colorschemes'
 colorscheme twilight256
+"tabline background color black
+:hi TabLineFill term=bold cterm=bold ctermbg=0
+:hi TabLine ctermfg=Black ctermbg=244
+:hi TabLineSel ctermfg=Black ctermg=214
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
 "plugin that does automatic code format
