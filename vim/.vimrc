@@ -84,3 +84,6 @@ Plugin 'vhdirk/vim-cmake'
 ":nnoremap <Leader>c :set cursorline!<CR>
 "show .cl file with cpp syntax
 autocmd BufNewFile,BufRead *.cl set syntax=c
+
+"todo list 
+Plugin 'aserebryakov/vim-todo-lists'
