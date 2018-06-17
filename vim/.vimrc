@@ -87,3 +87,15 @@ autocmd BufNewFile,BufRead *.cl set syntax=c
 
 "todo list 
 Plugin 'aserebryakov/vim-todo-lists'
+"Spellcheck settings changes some highlighting, so do it after  colorschemes
+:hi clear SpellBad
+:hi clear SpellCap
+:hi clear SpellRare
+:hi clear SpellLocal
+:hi SpellBad cterm=underline
+:hi SpellCap cterm=underline
+:hi SpellLocal cterm=underline
+"Toggles spell checking:
+:map <leader>ll :setlocal spell! spelllang=en_us<CR>
+"Instructions: ]s,[s forward backward search typos.
+"z= opens replacement suggestion list.
