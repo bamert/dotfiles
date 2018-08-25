@@ -41,7 +41,9 @@ Plugin 'tpope/vim-fugitive'
 syntax on
 "read additional colorscheme
 Plugin 'flazz/vim-colorschemes'
-colorscheme twilight256
+"colorscheme twilight256
+colorscheme evening
+:hi MatchParen ctermbg=yellow guibg=yellow
 "tabline background color black
 :hi TabLineFill term=bold cterm=bold ctermbg=0
 :hi TabLine ctermfg=Black ctermbg=244
@@ -71,9 +73,9 @@ nmap <F8> :TagbarToggle<CR>
 
 "Highlighting the current line:
 set cursorline
-:hi CursorLine   cterm=NONE ctermbg=234
-:hi CursorLineNr term=bold ctermfg=160 
-":hi CursorColumn cterm=NONE ctermbg=#172 ctermfg=white guibg=darkred guifg=white
+"The following are required for the colorscheme twilight
+":hi CursorLine   cterm=NONE ctermbg=234
+":hi CursorLineNr term=bold ctermfg=160 
 "
 
 "Async jobs
@@ -98,4 +100,17 @@ Plugin 'aserebryakov/vim-todo-lists'
 "Toggles spell checking:
 :map <leader>ll :setlocal spell! spelllang=en_us<CR>
 "Instructions: ]s,[s forward backward search typos.
-"z= opens replacement suggestion list.
+"z= opens replacement suggestion list
+"" Track the engine.
+"Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+"Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+"set runtimepath+=~/dotfiles/vim/snippets/
+"let g:UltiSnipsSnippetsDir='~/dotfiles/vim/snippets/'
+"let g:UltiSnipsSnippetDirectories=["snippets"]
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>".
