@@ -64,6 +64,7 @@ set expandtab
 "NERDTree,what else
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 "enables quick (un)commenting of lines
 Plugin 'scrooloose/nerdcommenter'
 
