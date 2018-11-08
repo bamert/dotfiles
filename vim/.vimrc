@@ -115,3 +115,12 @@ Plugin 'aserebryakov/vim-todo-lists'
 "let g:UltiSnipsSnippetDirectories=["snippets"]
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>".
+
+"Remap window navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"For seamless window navigation with tmux
+Bundle 'christoomey/vim-tmux-navigator'
