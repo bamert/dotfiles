@@ -124,3 +124,6 @@ nnoremap <C-H> <C-W><C-H>
 
 "For seamless window navigation with tmux
 Bundle 'christoomey/vim-tmux-navigator'
+
+"Disable automatic visual mode on mouse click
+set mouse -=a
