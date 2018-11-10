@@ -117,6 +117,7 @@ Plugin 'aserebryakov/vim-todo-lists'
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>".
 
 "Remap window navigation
+"Credit: https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
