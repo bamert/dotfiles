@@ -128,3 +128,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 "Disable automatic visual mode on mouse click
 set mouse -=a
+
+"Don't show tabline numbers
+set guitablabel=%N\ %f
