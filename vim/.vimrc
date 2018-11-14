@@ -45,9 +45,9 @@ Plugin 'flazz/vim-colorschemes'
 colorscheme evening
 :hi MatchParen ctermbg=yellow guibg=yellow
 "tabline background color black
+:hi TabLine ctermfg=8 ctermbg=0
 :hi TabLineFill term=bold cterm=bold ctermbg=0
-:hi TabLine ctermfg=Black ctermbg=244
-:hi TabLineSel ctermfg=Black ctermbg=214
+:hi TabLineSel ctermfg=248 ctermbg=0
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
 "plugin that does automatic code format
