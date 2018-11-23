@@ -25,14 +25,13 @@ filetype plugin indent on    " required
 "Airline plugin such that it shows the git branch
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'powerline/powerline-fonts'
-set guifont=Source\ Code\ Pro\ for\ Powerline
+"Plugin 'powerline/powerline-fonts'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extesions#branch#enabled=1
 
-"should let me see git status in airline:
+"Git status in airline
 Plugin 'tpope/vim-fugitive'
 
 
@@ -41,7 +40,6 @@ Plugin 'tpope/vim-fugitive'
 syntax on
 "read additional colorscheme
 Plugin 'flazz/vim-colorschemes'
-"colorscheme twilight256
 colorscheme evening
 :hi MatchParen ctermbg=yellow guibg=yellow
 "tabline background color black
@@ -74,13 +72,7 @@ nmap <F8> :TagbarToggle<CR>
 
 "Highlighting the current line:
 set cursorline
-"The following are required for the colorscheme twilight
-":hi CursorLine   cterm=NONE ctermbg=234
-":hi CursorLineNr term=bold ctermfg=160 
-"
 
-"Async jobs
-Plugin 'skywind3000/asyncrun.vim'
 "find cmake dir automaticaly
 Plugin 'vhdirk/vim-cmake'
 
@@ -88,8 +80,6 @@ Plugin 'vhdirk/vim-cmake'
 "show .cl file with cpp syntax
 autocmd BufNewFile,BufRead *.cl set syntax=c
 
-"todo list 
-Plugin 'aserebryakov/vim-todo-lists'
 "Spellcheck settings changes some highlighting, so do it after  colorschemes
 :hi clear SpellBad
 :hi clear SpellCap
@@ -102,19 +92,6 @@ Plugin 'aserebryakov/vim-todo-lists'
 :map <leader>ll :setlocal spell! spelllang=en_us<CR>
 "Instructions: ]s,[s forward backward search typos.
 "z= opens replacement suggestion list
-"" Track the engine.
-"Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
-"Plugin 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"set runtimepath+=~/dotfiles/vim/snippets/
-"let g:UltiSnipsSnippetsDir='~/dotfiles/vim/snippets/'
-"let g:UltiSnipsSnippetDirectories=["snippets"]
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>".
 
 "Remap window navigation
 "Credit: https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
