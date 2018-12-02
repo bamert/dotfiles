@@ -24,10 +24,10 @@ filetype plugin indent on    " required
 
 "Airline plugin such that it shows the git branch
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'powerline/powerline-fonts'
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'powerlineish'
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extesions#branch#enabled=1
 
