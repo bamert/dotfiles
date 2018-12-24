@@ -108,3 +108,10 @@ set mouse -=a
 
 "Don't show tabline numbers
 set guitablabel=%N\ %f
+
+" Open new splits on right and below
+set splitbelow splitright
+" Snippets!
+autocmd FileType tex inoremap <leader>tt \textt{}<Esc>T{i
+autocmd FileType tex inoremap <leader>align \begin{align}\end{align}<Esc>T}i
+
