@@ -25,8 +25,8 @@ filetype plugin indent on    " required
 "Airline plugin such that it shows the git branch
 "Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-"Plugin 'itchyny/lightline.vim'
+"Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 "Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'powerline/powerline-fonts'
 "Git gutter 
@@ -34,9 +34,19 @@ Plugin 'vim-airline/vim-airline'
 "let g:airline_theme = 'powerlineish'
 "let g:airline#extensions#hunks#enabled=0
 "let g:airline#extesions#branch#enabled=1
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+:set laststatus=2 "such that lightline enabled with a single pane only
 
-
-:set number
+:set number "linenumbers
 syntax on
 "read additional colorscheme
 Plugin 'flazz/vim-colorschemes'
