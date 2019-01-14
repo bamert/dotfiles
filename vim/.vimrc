@@ -23,17 +23,17 @@ filetype plugin indent on    " required
 "filetype plugin on
 
 "Airline plugin such that it shows the git branch
+"Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
+"Plugin 'itchyny/lightline.vim'
 "Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'powerline/powerline-fonts'
-let g:airline_powerline_fonts = 1
+"Git gutter 
+"let g:airline_powerline_fonts = 1
 "let g:airline_theme = 'powerlineish'
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extesions#branch#enabled=1
-
-"Git status in airline
-Plugin 'tpope/vim-fugitive'
-
+"let g:airline#extensions#hunks#enabled=0
+"let g:airline#extesions#branch#enabled=1
 
 
 :set number
@@ -63,6 +63,8 @@ set expandtab
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+let g:NERDTreeDirArrowExpandable = '*'
+let g:NERDTreeDirArrowCollapsible = 'v'
 "enables quick (un)commenting of lines
 Plugin 'scrooloose/nerdcommenter'
 
@@ -112,6 +114,14 @@ set guitablabel=%N\ %f
 " Open new splits on right and below
 set splitbelow splitright
 " Snippets!
-autocmd FileType tex inoremap <leader>tt \textt{}<Esc>T{i
-autocmd FileType tex inoremap <leader>align \begin{align}\end{align}<Esc>T}i
+"autocmd FileType tex inoremap <leader>tt \textt{}<Esc>T{i
+"autocmd FileType tex inoremap <leader>align \begin{align}\end{align}<Esc>T}i
+
+"Insert Booktabs table 
+function! BooktabsHelper(args)
+  let output =  system("bthelper", a:args) 
+  put=output 
+endfunction
+"Defines command Bt
+command! -nargs=1 Bt :call BooktabsHelper(<q-args>)
 
