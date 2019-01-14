@@ -26,7 +26,7 @@ filetype plugin indent on    " required
 "Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'vim-airline/vim-airline'
-Plugin 'itchyny/lightline.vim'
+"Plugin 'itchyny/lightline.vim'
 "Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'powerline/powerline-fonts'
 "Git gutter 
