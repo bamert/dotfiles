@@ -67,6 +67,7 @@ noremap <F3> :Autoformat<CR>
 Plugin 'DoxygenToolkit.vim'
 filetype plugin indent on
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 "NERDTree,what else
@@ -75,6 +76,9 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '*'
 let g:NERDTreeDirArrowCollapsible = 'v'
+" Fixes skipped character on CENTos
+let NERDTreeNodeDelimiter = "\t"
+"
 "enables quick (un)commenting of lines
 Plugin 'scrooloose/nerdcommenter'
 
@@ -134,4 +138,5 @@ function! BooktabsHelper(args)
 endfunction
 "Defines command Bt
 command! -nargs=1 Bt :call BooktabsHelper(<q-args>)
+
 
