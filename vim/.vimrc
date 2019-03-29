@@ -131,6 +131,15 @@ set splitbelow splitright
 "autocmd FileType tex inoremap <leader>tt \textt{}<Esc>T{i
 "autocmd FileType tex inoremap <leader>align \begin{align}\end{align}<Esc>T}i
 
+set path+=**
+set wildmenu
+" Netrw settings
+let g:netrw_banner=0
+"let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+"let g:netrw_compress=zip
+
 "Insert Booktabs table 
 function! BooktabsHelper(args)
   let output =  system("bthelper", a:args) 
