@@ -6,10 +6,6 @@ set encoding=utf-8
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " <============================================>
@@ -20,31 +16,8 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
 
-"Airline plugin such that it shows the git branch
-"Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'itchyny/lightline.vim'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'powerline/powerline-fonts'
-"Git gutter 
-"let g:airline_powerline_fonts = 1
-"let g:airline_theme = 'powerlineish'
-"let g:airline#extensions#hunks#enabled=0
-"let g:airline#extesions#branch#enabled=1
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-:set laststatus=2 "such that lightline enabled with a single pane only
 
 :set number "linenumbers
 syntax on
@@ -58,19 +31,16 @@ colorscheme evening
 :hi TabLineSel ctermfg=248 ctermbg=0
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
-"plugin that does automatic code format
+
+" Automatic Code Formatting
 Plugin 'chiel92/vim-autoformat'
 let g:formatprg_cs = "astyle --style=google"
 noremap <F3> :Autoformat<CR>
 
-"for doxygen headers
+" Insert Doxygen Documentation Headers
 Plugin 'DoxygenToolkit.vim'
-filetype plugin indent on
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-"NERDTree,what else
+
+" NerdTree
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -82,15 +52,57 @@ let NERDTreeNodeDelimiter = "\t"
 "enables quick (un)commenting of lines
 Plugin 'scrooloose/nerdcommenter'
 
-"tagbar (class overview)
-Plugin 'majutsushi/tagbar'
-nmap <F8> :TagbarToggle<CR>
-
-"Highlighting the current line:
+" Editing settings
+"  Highlighting the current line:
 set cursorline
 
-"find cmake dir automaticaly
-Plugin 'vhdirk/vim-cmake'
+"  Indentation on
+filetype plugin indent on
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" Remap window navigation
+" Credit: https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"  For seamless window navigation with tmux
+Bundle 'christoomey/vim-tmux-navigator'
+"  Disable automatic visual mode on mouse click
+set mouse -=a
+
+"  Don't show tabline numbers
+set guitablabel=%N\ %f
+
+"  Open new splits on right and below
+set splitbelow splitright
+"  Include subdirectories in find path
+set path+=**
+"  Wildcard menu
+set wildmenu
+"  Netrw settings
+let g:netrw_banner=0
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+
+"  Custom statusline
+set laststatus=2 " always show it
+hi User1 ctermfg=7 
+hi User2 ctermfg=7 
+
+set statusline =%1*\ %n\ %*            "buffer number
+set statusline +=*\ %<%F%*            "full path
+set statusline +=%2*%m%*                "modified flag
+set statusline +=%2*\ %{fugitive#statusline()}
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%1*%4v\ %*             "virtual column number
+set statusline +=%2*0x%04B\ %*          "character under cursor
+
 
 ":nnoremap <Leader>c :set cursorline!<CR>
 "show .cl file with cpp syntax
@@ -106,41 +118,12 @@ autocmd BufNewFile,BufRead *.cl set syntax=c
 :hi SpellLocal cterm=underline
 "Toggles spell checking:
 :map <leader>ll :setlocal spell! spelllang=en_us<CR>
-"Instructions: ]s,[s forward backward search typos.
-"z= opens replacement suggestion list
 
-"Remap window navigation
-"Credit: https://robots.thoughtbot.com/seamlessly-navigate-vim-and-tmux-splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-"For seamless window navigation with tmux
-Bundle 'christoomey/vim-tmux-navigator'
-
-"Disable automatic visual mode on mouse click
-set mouse -=a
-
-"Don't show tabline numbers
-set guitablabel=%N\ %f
-
-" Open new splits on right and below
-set splitbelow splitright
 " Snippets!
 "autocmd FileType tex inoremap <leader>tt \textt{}<Esc>T{i
 "autocmd FileType tex inoremap <leader>align \begin{align}\end{align}<Esc>T}i
 
-set path+=**
-set wildmenu
-" Netrw settings
-let g:netrw_banner=0
-"let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_liststyle=3
-"let g:netrw_compress=zip
-
-"Insert Booktabs table 
+" Insert Booktabs table (needs to be installed)
 function! BooktabsHelper(args)
   let output =  system("bthelper", a:args) 
   put=output 
