@@ -6,5 +6,5 @@ echo "source ~/dotfiles/vim/.vimrc" > ~/.vimrc
 #Setup Tmux
 echo "source ~/dotfiles/tmux/.tmux.conf" > ~/.tmux.conf
 #Setup Git
-echo "[include]" > ~/.gitconfig
-echo "  path = ~/dotfiles/git/.gitconfig" > ~/.gitconfig
+echo "[include]\n" > ~/.gitconfig
+echo "  path = ~/dotfiles/git/.gitconfig" >> ~/.gitconfig
