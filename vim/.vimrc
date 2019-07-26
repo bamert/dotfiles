@@ -14,6 +14,10 @@ Plugin 'VundleVim/Vundle.vim'
 " <============================================>
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+set nofoldenable 
+" new, added for python
+"set cindent
+"autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 
