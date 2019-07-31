@@ -48,8 +48,8 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable = '*'
-let g:NERDTreeDirArrowCollapsible = 'v'
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 " Fixes skipped character on CENTos
 let NERDTreeNodeDelimiter = "\t"
 "
