@@ -7,7 +7,7 @@ set encoding=utf-8
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'morhetz/gruvbox'
 " <============================================>
 " Specify the plugins you want to install here.
 " We'll come on that later
