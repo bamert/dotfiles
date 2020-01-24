@@ -1,5 +1,9 @@
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if !  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && [ ! -d 'Vundle' ] ; then
+  echo "Vundle clone skipped, directory already exists"
+fi
+if ! git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && [  ! -d 'tmp' ] ; then
+  echo "tpm clone skipped, directory already exists"
+fi
 
 #Setup VIM
 echo "source ~/dotfiles/vim/.vimrc" > ~/.vimrc 
