@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 set t_Co=256
 filetype off                  " required <<========== We can turn it on later
+set belloff=all
 
 set encoding=utf-8
 " set the runtime path to include Vundle and initialize
@@ -8,6 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'ayu-theme/ayu-vim'
 " <============================================>
 " Specify the plugins you want to install here.
 " We'll come on that later
@@ -27,7 +29,19 @@ Plugin 'tpope/vim-fugitive'
 syntax on
 "read additional colorscheme
 Plugin 'flazz/vim-colorschemes'
+"
+"let termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"colorscheme ayu
+"set bg=light
+"colorscheme Atelier_DuneLight
+
+set bg=dark
 colorscheme evening
+
+command! -nargs=0 Godark :set bg=dark | colorscheme evening 
+command! -nargs=0 Golight :set bg=light | colorscheme Atelier_DuneLight 
+
 :hi MatchParen ctermbg=yellow guibg=yellow
 "tabline background color black
 :hi TabLine ctermfg=8 ctermbg=0
