@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'ayu-theme/ayu-vim'
-"Plugin 'junegunn/seoul256.vim'
+Plugin 'junegunn/seoul256.vim'
 " <============================================>
 " Specify the plugins you want to install here.
 " We'll come on that later
@@ -32,11 +32,13 @@ syntax on
 Plugin 'flazz/vim-colorschemes'
 "
 
-set bg=dark
-colorscheme evening
-"let g:seoul256_background = 238
-"let g:seoul256_light_background = 252
-"colorscheme seoul256
+"set bg=dark
+"colorscheme evening
+let g:seoul256_background = 238
+let g:seoul256_light_background = 254
+colo seoul256
+colo seoul256-light
+let g:tex_no_error=1 "prevents underscores to show as errors in LaTeX
 
 command! -nargs=0 Godark :set bg=dark | colorscheme evening 
 command! -nargs=0 Golight :set bg=light | colorscheme Atelier_DuneLight 
