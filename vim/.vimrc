@@ -120,7 +120,7 @@ hi User1 ctermfg=7
 hi User2 ctermfg=7
 
 set statusline =%1*\ %n\ %*            "buffer number
-set statusline +=*\ %<%F%*            "full path
+set statusline +=\%<%F%*            "full path
 set statusline +=%2*%m%*                "modified flag
 set statusline +=%2*\ %{fugitive#statusline()}
 set statusline +=%1*%=%5l%*             "current line
