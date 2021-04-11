@@ -163,3 +163,20 @@ endfunction
 command! -nargs=1 Bt :call BooktabsHelper(<q-args>)
 " Deletes trailing white space
 command! Tws :%s/\s\+$//e
+
+function! OpenURLUnderCursor()
+    let s:uri = expand('<cWORD>')
+    let s:uri = matchstr(s:uri, "[a-z]*:\/\/[^ >,;)'\"]*")
+    let s:uri = substitute(s:uri, '#', '\\#', '')
+    let g:os = substitute(system('uname'), '\n', '', '')
+
+    if s:uri != ''
+        if g:os == "Darwin"
+          silent exec "!open '".s:uri."' > /dev/null"
+        else
+          silent exec "!xdg-open '".s:uri."' > /dev/null"
+        endif
+        :redraw!
+    endif
+ endfunction
+ nnoremap gx :call OpenURLUnderCursor()<CR>
