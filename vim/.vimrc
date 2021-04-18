@@ -180,3 +180,7 @@ function! OpenURLUnderCursor()
     endif
  endfunction
  nnoremap gx :call OpenURLUnderCursor()<CR>
+
+
+ " Show visual selection size
+set showcmd
