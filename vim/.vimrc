@@ -1,27 +1,18 @@
-set nocompatible              " be iMproved, required
+set nocompatible              
 set t_Co=256
-filetype off                  " required <<========== We can turn it on later
+filetype off                  
 set belloff=all
+set noerrorbells
 
-"set rtp+=~/.fzf
 set encoding=utf-8
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'junegunn/seoul256.vim'
-" <============================================>
-" Specify the plugins you want to install here.
-" We'll come on that later
-" <============================================>
-" All of your Plugins must be added before the following line
+"Plugin 'junegunn/seoul256.vim'
 call vundle#end()            " required
 set nofoldenable
-" new, added for python
-"set cindent
-"autocmd FileType python setlocal foldmethod=indent smartindent shiftwidth=4 ts=4 et cinwords=if,elif,else,for,while,try,except,finally,def,class
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 
@@ -29,25 +20,23 @@ Plugin 'tpope/vim-fugitive'
 
 :set number "linenumbers
 syntax on
-"read additional colorscheme
-Plugin 'flazz/vim-colorschemes'
-"
+"Plugin 'flazz/vim-colorschemes'
 
-"set bg=dark
-"colorscheme evening
-let g:seoul256_background = 233
-let g:seoul256_light_background = 254
-colo evening
+" Former colorschemes: evening, seoul256
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
+set bg=dark
+colo gruvbox
+" Conceal tildes in empty buffer lines
+highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 "colo seoul256-light
 let g:tex_no_error=1 "prevents underscores to show as errors in LaTeX
 
 "command! -nargs=0 Godark :set bg=dark | colorscheme evening
-command! -nargs=0 Godark :set bg=dark | colorscheme evening
-command! -nargs=0 Goseoul :set bg=dark | colorscheme seoul256
-command! -nargs=0 Golight :set bg=light | colorscheme seoul256-light
+"command! -nargs=0 Goseoul :set bg=dark | colorscheme seoul256
+"command! -nargs=0 Golight :set bg=light | colorscheme seoul256-light
 
-:hi MatchParen ctermbg=yellow guibg=yellow
-"tabline background color black
+":hi MatchParen ctermbg=yellow guibg=yellow
 :hi TabLine ctermfg=8 ctermbg=0
 :hi TabLineFill term=bold cterm=bold ctermbg=0
 :hi TabLineSel ctermfg=248 ctermbg=0
@@ -55,9 +44,9 @@ command! -nargs=0 Golight :set bg=light | colorscheme seoul256-light
 set timeoutlen=1000 ttimeoutlen=10
 
 " Automatic Code Formatting
-Plugin 'chiel92/vim-autoformat'
-let g:formatprg_cs = "astyle --style=google"
-noremap <F3> :Autoformat<CR>
+"Plugin 'chiel92/vim-autoformat'
+"let g:formatprg_cs = "astyle --style=google"
+"noremap <F3> :Autoformat<CR>
 
 " Insert Doxygen Documentation Headers
 Plugin 'DoxygenToolkit.vim'
@@ -74,8 +63,6 @@ let NERDTreeNodeDelimiter = "\t"
 "enables quick (un)commenting of lines
 Plugin 'scrooloose/nerdcommenter'
 
-" Editing settings
-"  Highlighting the current line:
 set cursorline
 
 "  Indentation on
@@ -101,7 +88,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 set mouse -=a
 
 "  Don't show tabline numbers
-set guitablabel=%N\ %f
+"set guitablabel=%N\ %f
 
 "  Open new splits on right and below
 set splitbelow splitright
@@ -116,8 +103,8 @@ let g:netrw_liststyle=3
 
 "  Custom statusline
 set laststatus=2 " always show it
-hi User1 ctermfg=7
-hi User2 ctermfg=7
+"hi User1 ctermfg=7
+"hi User2 ctermfg=3
 
 set statusline =%1*\ %n\ %*            "buffer number
 set statusline +=\%<%F%*            "full path
