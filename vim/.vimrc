@@ -162,6 +162,13 @@ function! OpenURLUnderCursor()
 set showcmd
 
 
-" Omnicompletion
-set omnifunc=syntaxcomplete#Complete
+" Omnicompletion (without plugin)
+"set omnifunc=syntaxcomplete#Complete # 
 set completeopt=menuone,menu,longest,preview
+"
+" Omnicompletion (with OmniCPP complete plugin)
+Plugin 'OmniCppComplete'
+"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
+set omnifunc=omni#cpp#complete#Main
+let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
+command! CTags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q
