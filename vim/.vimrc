@@ -10,7 +10,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
-"Plugin 'junegunn/seoul256.vim'
 call vundle#end()            " required
 set nofoldenable
 filetype plugin indent on    " required
@@ -59,6 +58,8 @@ let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 " Fixes skipped character on CENTos
 let NERDTreeNodeDelimiter = "\t"
+" Hide help
+let NERDTreeMinimalUI=1 
 "
 "enables quick (un)commenting of lines
 Plugin 'scrooloose/nerdcommenter'
@@ -115,8 +116,6 @@ set statusline +=%2*/%L%*               "total lines
 set statusline +=%1*%4v\ %*             "virtual column number
 set statusline +=%2*0x%04B\ %*          "character under cursor
 
-
-":nnoremap <Leader>c :set cursorline!<CR>
 "show .cl file with cpp syntax
 autocmd BufNewFile,BufRead *.cl set syntax=c
 
@@ -130,16 +129,6 @@ autocmd BufNewFile,BufRead *.cl set syntax=c
 :hi SpellLocal cterm=underline
 "Toggles spell checking:
 :map <leader>ll :setlocal spell! spelllang=en_us<CR>
-":map <leader>nn :set nu!<CR>
-" turn hybrid line numbers on
-":set number relativenumber
-":set nu rnu
-
-
-
-" Snippets!
-"autocmd FileType tex inoremap <leader>tt \textt{}<Esc>T{i
-"autocmd FileType tex inoremap <leader>align \begin{align}\end{align}<Esc>T}i
 
 " Insert Booktabs table (needs to be installed)
 function! BooktabsHelper(args)
@@ -171,3 +160,8 @@ function! OpenURLUnderCursor()
 
  " Show visual selection size
 set showcmd
+
+
+" Omnicompletion
+set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,menu,longest,preview
