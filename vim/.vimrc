@@ -114,7 +114,7 @@ set statusline +=%2*\ %{fugitive#statusline()}
 set statusline +=%1*%=%5l%*             "current line
 set statusline +=%2*/%L%*               "total lines
 set statusline +=%1*%4v\ %*             "virtual column number
-set statusline +=%2*0x%04B\ %*          "character under cursor
+"set statusline +=%2*0x%04B\ %*          "character under cursor
 
 "show .cl file with cpp syntax
 autocmd BufNewFile,BufRead *.cl set syntax=c
@@ -163,12 +163,16 @@ set showcmd
 
 
 " Omnicompletion (without plugin)
-"set omnifunc=syntaxcomplete#Complete # 
-set completeopt=menuone,menu,longest,preview
+set completeopt=menuone,menu,longest
+
+autocmd FileType python set omnifunc=python3complete#Complete
 "
 " Omnicompletion (with OmniCPP complete plugin)
 Plugin 'OmniCppComplete'
-"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
-set omnifunc=omni#cpp#complete#Main
+autocmd FileType c,cpp,h,hpp set omnifunc=omni#cpp#complete#Main
+
 let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
+let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+
 command! CTags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q
