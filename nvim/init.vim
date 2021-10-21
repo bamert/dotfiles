@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 call vundle#end()            " required
 set nofoldenable
+set nohlsearch
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 
@@ -163,17 +164,42 @@ set showcmd
 
 
 " Omnicompletion (without plugin)
-set completeopt=menuone,menu,longest
+"(My own)set completeopt=menuone,menu,longest
 
-autocmd FileType python set omnifunc=python3complete#Complete
+" Recommended for NVIM by hrsh7th complete)
+set completeopt=menu,menuone,noselect
+
+" Always show sign column, even if no errors.
+set signcolumn=yes
+" Set signcolumn to same color as rest of editor
+highlight clear SignColumn
+
+"autocmd FileType python set omnifunc=python3complete#Complete
 "
 " Omnicompletion (with OmniCPP complete plugin)
-Plugin 'OmniCppComplete'
-autocmd FileType c,cpp,h,hpp set omnifunc=omni#cpp#complete#Main
+"Plugin 'OmniCppComplete'
+"autocmd FileType c,cpp,h,hpp set omnifunc=omni#cpp#complete#Main
 
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
+"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 command! CTags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q
-command! CTagsPy !ctags -R --sort=yes --languages=python --python-kinds=-iv --fields=+iaS --extras=+q
+"-----------------------------------------------------NVIM LSP----------------
+" relevant plugins
+
+call plug#begin('~/.local/shared/nvim/plugged')
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip' 
+Plug 'ray-x/lsp_signature.nvim'
+call plug#end()
+
+luafile ~/.config/nvim/pyright.lua
+hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+
+
