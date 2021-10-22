@@ -10,16 +10,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-fugitive'
+Plugin 'DoxygenToolkit.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter' " quick uncommenting of lines
+Plugin 'OmniCppComplete'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()            " required
 set nofoldenable
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 
-Plugin 'tpope/vim-fugitive'
 set diffopt+=vertical
 set number "linenumbers
 syntax on
-"Plugin 'flazz/vim-colorschemes'
 
 " Former colorschemes: evening, seoul256
 let g:gruvbox_contrast_dark = 'hard'
@@ -28,41 +32,20 @@ set bg=dark
 colo gruvbox
 " Conceal tildes in empty buffer lines
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-"colo seoul256-light
 let g:tex_no_error=1 "prevents underscores to show as errors in LaTeX
 
-"command! -nargs=0 Godark :set bg=dark | colorscheme evening
-"command! -nargs=0 Goseoul :set bg=dark | colorscheme seoul256
-"command! -nargs=0 Golight :set bg=light | colorscheme seoul256-light
-
-":hi MatchParen ctermbg=yellow guibg=yellow
 :hi TabLine ctermfg=8 ctermbg=0
 :hi TabLineFill term=bold cterm=bold ctermbg=0
 :hi TabLineSel ctermfg=248 ctermbg=0
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
 
-" Automatic Code Formatting
-"Plugin 'chiel92/vim-autoformat'
-"let g:formatprg_cs = "astyle --style=google"
-"noremap <F3> :Autoformat<CR>
-
-" Insert Doxygen Documentation Headers
-Plugin 'DoxygenToolkit.vim'
-
 " NerdTree
-Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
-" Fixes skipped character on CENTos
-let NERDTreeNodeDelimiter = "\t"
-" Hide help
-let NERDTreeMinimalUI=1 
-"
-"enables quick (un)commenting of lines
-Plugin 'scrooloose/nerdcommenter'
+let NERDTreeMinimalUI=1  "Hide help
 
 set cursorline
 
@@ -83,8 +66,6 @@ nnoremap <C-H> <C-W><C-H>
 " Remap ctrl c in visual mode to yank to system clipboard
 vnoremap <C-c> "*y
 
-"  For seamless window navigation with tmux
-Bundle 'christoomey/vim-tmux-navigator'
 "  Disable automatic visual mode on mouse click
 set mouse -=a
 
@@ -157,10 +138,8 @@ function! OpenURLUnderCursor()
  endfunction
  nnoremap gx :call OpenURLUnderCursor()<CR>
 
-
  " Show visual selection size
 set showcmd
-
 
 " Omnicompletion (without plugin)
 set completeopt=menuone,menu,longest
@@ -168,7 +147,6 @@ set completeopt=menuone,menu,longest
 autocmd FileType python set omnifunc=python3complete#Complete
 "
 " Omnicompletion (with OmniCPP complete plugin)
-Plugin 'OmniCppComplete'
 autocmd FileType c,cpp,h,hpp set omnifunc=omni#cpp#complete#Main
 
 let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
@@ -177,3 +155,10 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 command! CTags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q
 command! CTagsPy !ctags -R --sort=yes --languages=python --python-kinds=-iv --fields=+iaS --extras=+q
+
+" Backups and undoing
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set noincsearch
