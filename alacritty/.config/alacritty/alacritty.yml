@@ -1,0 +1,37 @@
+use_thin_strokes: false
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#eeeeee'
+  normal:
+    black : '0x000000'
+    red:     '0xcd0000'
+    green:   '0x00cd00'
+    yellow:  '0xcdcd00'
+    blue:    '0x0000ee'
+    magenta: '0xcd00cd'
+    cyan:    '0x00cdcd'
+    white:   '0xe5e5e5'
+key_bindings:
+  - { key: Equals,     mods: Super, action: IncreaseFontSize }
+  - { key: Minus,    mods: Super, action: DecreaseFontSize   }
+
+font:
+  normal:
+    family: JetBrains Mono 
+    style: ExtraLight
+
+  bold:
+    family: Roboto Mono for Powerline
+    style: Bold
+
+  italic:
+    family: Roboto Mono for Powerline
+    style: Italic
+
+  bold_italic:
+    family: Roboto Mono for Powerline
+    style: Bold Italic
+
+  size: 14

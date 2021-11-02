@@ -1,8 +1,0 @@
-set number
-colorscheme evening
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
-set tabstop=2 shiftwidth=2 expandtab
-set autoindent
-set cindent
-set timeoutlen=1000 ttimeoutlen=0 "leave visual mode quickly
