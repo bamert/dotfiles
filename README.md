@@ -1,16 +1,7 @@
 # Installation
 Install using [GNU Stow](https://www.gnu.org/software/stow/), i.e. inside the `dotfiles` directory do:
 ```
-stow bash git tmux vim xdg
+stow git tmux vim nvim alacritty 
 ```
-
-My dot files,
-include from respective files
-
-* ~/.bash_profile
-* ~/.tmux.conf
-* ~/.vimrc
-
-and so forth
-
-
+# Additional installs
+- For Vim, I use Vundle; `sh install-vundle.sh`

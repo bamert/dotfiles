@@ -1,4 +1,4 @@
-if !  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && [ ! -d 'Vundle' ] ; then
-  echo "Vundle clone skipped, directory already exists"
-fi
+#!/usr/bin/env bash
+# cd to dotfiles dir
+cd "$(dirname "${BASH_SOURCE[0]}")"
 stow git vim nvim tmux alacritty
