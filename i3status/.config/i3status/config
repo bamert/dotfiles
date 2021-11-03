@@ -11,16 +11,11 @@ general {
         interval = 1
 }
 
-order += "read_file bjobs"
 order += "ipv6"
 order += "disk /"
 order += "ethernet _first_"
 order += "load"
 order += "tztime local"
-
-read_file bjobs{
-  path = "/home/bamertn/.leostatus"
-}
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
