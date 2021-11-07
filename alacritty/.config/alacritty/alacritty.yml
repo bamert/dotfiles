@@ -19,7 +19,7 @@ key_bindings:
 
 font:
   normal:
-    family: JetBrains Mono 
+    family: JetBrains Mono NL
     style: ExtraLight
 
   bold:
