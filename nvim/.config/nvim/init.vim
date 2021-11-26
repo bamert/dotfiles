@@ -13,7 +13,10 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip' 
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/playground'
 call plug#end()
+lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 
 luafile ~/.config/nvim/lsp.lua
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red

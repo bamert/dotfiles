@@ -66,7 +66,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple language servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'clangd', 'tsserver'} 
+local servers = { 'pyright', 'tsserver'} 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -77,3 +77,15 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+-- We pass the --enable-config flag to clang s.t. indexes the .clangd file in the project root,
+-- which contains the linting settings
+nvim_lsp["clangd"].setup {
+    on_attach = on_attach,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(
+      vim.lsp.protocol.make_client_capabilities()),
+      cmd = { 'clangd', '--background-index', "--enable-config"},
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+
