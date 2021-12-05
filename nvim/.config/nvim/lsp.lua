@@ -67,6 +67,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple language servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'tsserver'} 
+vim.lsp.diagnostic.set_loclist({open_loclist=false})
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

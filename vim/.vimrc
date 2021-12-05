@@ -162,3 +162,4 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set noincsearch
+set nohls

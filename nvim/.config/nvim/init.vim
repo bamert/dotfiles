@@ -20,4 +20,3 @@ lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 
 luafile ~/.config/nvim/lsp.lua
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
-
