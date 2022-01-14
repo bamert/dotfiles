@@ -67,7 +67,6 @@ end
 -- Use a loop to conveniently call 'setup' on multiple language servers and
 -- map buffer local keybindings when the language server attaches
 local servers = { 'pyright', 'tsserver'} 
-vim.lsp.diagnostic.set_loclist({open_loclist=false})
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -89,4 +88,39 @@ nvim_lsp["clangd"].setup {
       debounce_text_changes = 150,
     }
   }
+--[[
+require("diaglist").init({
+    -- optional settings
+    -- below are defaults
 
+    -- increase for noisy servers
+    debounce_ms = 50,
+
+    -- list in quickfix only diagnostics from clients
+    -- attached to a current buffer
+    -- if false, all buffers' clients diagnostics is collected
+    buf_clients_only = true, 
+})
+--]]
+--[[
+do
+  local method = "textDocument/publishDiagnostics"
+  local default_handler = vim.lsp.handlers[method]
+  vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr, config)
+    default_handler(err, method, result, client_id, bufnr, config)
+    local diagnostics = vim.lsp.diagnostic.get_all()
+    --local diagnostics = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+    local qflist = {}
+    for bufnr, diagnostic in pairs(diagnostics) do
+      for _, d in ipairs(diagnostic) do
+        d.bufnr = bufnr
+        d.lnum = d.range.start.line + 1
+        d.col = d.range.start.character + 1
+        d.text = d.message
+        table.insert(qflist, d)
+      end
+    end
+    vim.lsp.util.set_qflist(qflist)
+  end
+end
+--]]
