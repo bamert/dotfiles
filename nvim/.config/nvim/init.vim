@@ -22,8 +22,12 @@ Plug 'ThePrimeagen/harpoon'
 call plug#end()
 lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 lua require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",".git"} } } 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
 luafile ~/.config/nvim/lsp.lua
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+
+" yanking copies into system clipboard
+set clipboard+=unnamedplus
 
 "nmap <space>dw <cmd>lua require('diaglist').open_all_diagnostics()<cr>
 "nmap <space>d0 <cmd>lua require('diaglist').open_buffer_diagnostics()<cr>
