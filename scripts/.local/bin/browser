@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+if [ "$#" -ne 1 ]; then
+    echo "Opens a path to file or url with the associated application"
+    exit
+fi
+
+case "$(uname -s)" in
+    Darwin)
+        open $1
+        ;;
+    Linux)
+        nohup xdg-open $1 >/dev/null 2>&1
+        ;;
+    CYGWIN*|MINGW32*|MSYS*|MINGW*)
+        start $1
+        ;;
+    *)
+        echo "Couldn't recognize your OS" 
+        ;;
+esac

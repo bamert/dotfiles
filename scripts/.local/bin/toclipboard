@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+case "$(uname -s)" in
+    Darwin)
+        echo $(read) | pbcopy
+        ;;
+    Linux)
+        echo $(read) | xclip -selection clipboard
+        ;;
+    CYGWIN*|MINGW32*|MSYS*|MINGW*)
+        echo "not implemented"
+        ;;
+    *)
+        echo "Couldn't recognize your OS" 
+        ;;
+esac
