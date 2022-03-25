@@ -88,6 +88,11 @@ nvim_lsp["clangd"].setup {
       debounce_text_changes = 150,
     }
   }
+
+-- setup sqlls (Totally buggy at the moment, so I'm not using it)
+-- nvim_lsp.sqlls.setup{}
+
+  --require
 --[[
 require("diaglist").init({
     -- optional settings

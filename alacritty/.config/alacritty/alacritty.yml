@@ -20,18 +20,15 @@ key_bindings:
 font:
   normal:
     family: JetBrains Mono NL
-    style: ExtraLight
+    style: Regular #ExtraLight, Light, Regular, Medium
+
 
   bold:
-    family: Roboto Mono for Powerline
+    family: JetBrains Mono
     style: Bold
 
   italic:
-    family: Roboto Mono for Powerline
+    family: JetBrains Mono NL
     style: Italic
 
-  bold_italic:
-    family: Roboto Mono for Powerline
-    style: Bold Italic
-
-  size: 14
+  size: 9
