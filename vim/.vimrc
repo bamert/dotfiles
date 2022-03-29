@@ -7,16 +7,17 @@ set noerrorbells
 set encoding=utf-8
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-fugitive'
-Plugin 'DoxygenToolkit.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter' " quick uncommenting of lines
-Plugin 'OmniCppComplete'
-Plugin 'christoomey/vim-tmux-navigator'
-call vundle#end()            " required
+"call plug#begin()
+call plug#begin('~/.local/shared/vim/plugged')
+"Plug 'VundleVim/Vundle.vim'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+"Plugin 'DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter' " quick uncommenting of lines
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()           
 set nofoldenable
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:

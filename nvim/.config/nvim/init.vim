@@ -3,8 +3,15 @@ set undodir=~/.vim/nvimundodir "Undo file version incompatible with vim
 set signcolumn=yes
 highlight clear SignColumn
 
-"For NVIM LSP
 call plug#begin('~/.local/shared/nvim/plugged')
+" Repeat plugins for vim
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter' " quick uncommenting of lines
+Plug 'christoomey/vim-tmux-navigator'
+" nvim specific plugins
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
@@ -20,19 +27,20 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'ThePrimeagen/harpoon'
 call plug#end()
+
+" Treesiter highlighting
 lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
+" Telescope 
 lua require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",".git"} } } 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+
+" Lsp Diagnostics
 luafile ~/.config/nvim/lsp.lua
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
 
-" yanking copies into system clipboard
-set clipboard+=unnamedplus
-
-"nmap <space>dw <cmd>lua require('diaglist').open_all_diagnostics()<cr>
-"nmap <space>d0 <cmd>lua require('diaglist').open_buffer_diagnostics()<cr>
-"--verbosity 2
-
+" Trouble (diagnostics)
 lua << EOF
   require("trouble").setup {
     fold_open = "v", -- icon used for open folds
@@ -63,6 +71,7 @@ nnoremap <leader>hr <cmd> lua require("harpoon.mark").rm_file()<cr>
 nnoremap <leader>hv :lua require("harpoon.mark").to_quickfix_list() <cr> :copen <cr> 
 nnoremap <leader>hq <cmd> lua require("harpoon.ui").toggle_quick_menu()<cr>
 
-
+" yanking copies into system clipboard
+set clipboard+=unnamedplus
 " Buffer yank to clipboard
 nnoremap <leader>yf :%y+<CR>

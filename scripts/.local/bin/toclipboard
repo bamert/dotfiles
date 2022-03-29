@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+# We receive piped content into a buffer
+buf=$(tee)
 case "$(uname -s)" in
     Darwin)
-        echo $(read) | pbcopy
+        echo -n "$buf" | pbcopy
         ;;
     Linux)
-        echo $(read) | xclip -selection clipboard
+        echo -n "$buf" | xclip -selection clipboard
         ;;
     CYGWIN*|MINGW32*|MSYS*|MINGW*)
         echo "not implemented"
