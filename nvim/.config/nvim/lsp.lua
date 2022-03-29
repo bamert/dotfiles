@@ -64,8 +64,7 @@ local on_attach = function(client, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple language servers and
--- map buffer local keybindings when the language server attaches
+-- Use a loop to call the default setup() on some language servers
 local servers = { 'pyright', 'tsserver'} 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -77,8 +76,9 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
--- We pass the --enable-config flag to clang s.t. indexes the .clangd file in the project root,
--- which contains the linting settings
+-- For C/c++ we use clangd. Here we want extra flags that enable parsing the
+-- .clangd file which may be present in the project root.
+-- This can contain formatting settings / linting rules
 nvim_lsp["clangd"].setup {
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(
@@ -89,43 +89,3 @@ nvim_lsp["clangd"].setup {
     }
   }
 
--- setup sqlls (Totally buggy at the moment, so I'm not using it)
--- nvim_lsp.sqlls.setup{}
-
-  --require
---[[
-require("diaglist").init({
-    -- optional settings
-    -- below are defaults
-
-    -- increase for noisy servers
-    debounce_ms = 50,
-
-    -- list in quickfix only diagnostics from clients
-    -- attached to a current buffer
-    -- if false, all buffers' clients diagnostics is collected
-    buf_clients_only = true, 
-})
---]]
---[[
-do
-  local method = "textDocument/publishDiagnostics"
-  local default_handler = vim.lsp.handlers[method]
-  vim.lsp.handlers[method] = function(err, method, result, client_id, bufnr, config)
-    default_handler(err, method, result, client_id, bufnr, config)
-    local diagnostics = vim.lsp.diagnostic.get_all()
-    --local diagnostics = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-    local qflist = {}
-    for bufnr, diagnostic in pairs(diagnostics) do
-      for _, d in ipairs(diagnostic) do
-        d.bufnr = bufnr
-        d.lnum = d.range.start.line + 1
-        d.col = d.range.start.character + 1
-        d.text = d.message
-        table.insert(qflist, d)
-      end
-    end
-    vim.lsp.util.set_qflist(qflist)
-  end
-end
---]]
