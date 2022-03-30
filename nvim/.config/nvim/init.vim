@@ -19,6 +19,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'ThePrimeagen/harpoon'
+Plug 'vim-test/vim-test'
 call plug#end()
 lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 lua require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",".git"} } } 
@@ -66,3 +67,7 @@ nnoremap <leader>hq <cmd> lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 " Buffer yank to clipboard
 nnoremap <leader>yf :%y+<CR>
+
+
+" vim fugitive show patches for current file
+command! Glog Git log -p --follow -- %
