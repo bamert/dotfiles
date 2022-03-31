@@ -143,16 +143,16 @@ function! OpenURLUnderCursor()
 set showcmd
 
 " Omnicompletion (without plugin)
-set completeopt=menuone,menu,longest
+set completeopt=menu,menuone,noselect
 
-autocmd FileType python set omnifunc=python3complete#Complete
+"autocmd FileType python set omnifunc=python3complete#Complete
 "
 " Omnicompletion (with OmniCPP complete plugin)
-autocmd FileType c,cpp,h,hpp set omnifunc=omni#cpp#complete#Main
+"autocmd FileType c,cpp,h,hpp set omnifunc=omni#cpp#complete#Main
 
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function signature in preview
+"let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+"let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 
 command! CTags !ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q
 command! CTagsPy !ctags -R --sort=yes --languages=python --python-kinds=-iv --fields=+iaS --extras=+q

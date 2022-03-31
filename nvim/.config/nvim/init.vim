@@ -28,7 +28,6 @@ Plug 'folke/trouble.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'vim-test/vim-test'
 call plug#end()
-
 " Treesiter highlighting
 lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 " Telescope 
