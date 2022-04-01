@@ -15,8 +15,8 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    -- Don't automatically select an item
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    -- Automatically select first item on tab
+    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
     { name = 'nvim_lsp' },
