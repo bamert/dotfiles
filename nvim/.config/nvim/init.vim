@@ -35,6 +35,7 @@ lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 lua require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",".git"} } } 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>lg <cmd>Telescope live_grep<cr> " Needs ripgrep to be installed
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fb <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>ft <cmd>Telescope treesitter<cr>
