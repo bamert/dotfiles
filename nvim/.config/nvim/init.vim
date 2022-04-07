@@ -1,3 +1,4 @@
+set termguicolors
 source ~/.vimrc 
 set undodir=~/.vim/nvimundodir "Undo file version incompatible with vim
 set signcolumn=yes
@@ -33,8 +34,10 @@ lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 " Telescope 
 lua require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",".git"} } } 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>fc <cmd>Telescope git_commits<cr>
+nnoremap <leader>fb <cmd>Telescope git_bcommits<cr>
+nnoremap <leader>ft <cmd>Telescope treesitter<cr>
 
 " Lsp Diagnostics
 luafile ~/.config/nvim/lsp.lua
@@ -59,8 +62,8 @@ lua << EOF
 EOF
 
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 

@@ -1,3 +1,4 @@
+set termguicolors
 set nocompatible              
 set t_Co=256
 filetype off                  
@@ -35,9 +36,6 @@ colo gruvbox
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 let g:tex_no_error=1 "prevents underscores to show as errors in LaTeX
 
-:hi TabLine ctermfg=8 ctermbg=0
-:hi TabLineFill term=bold cterm=bold ctermbg=0
-:hi TabLineSel ctermfg=248 ctermbg=0
 "reduce the delay that happens when leaving insert mode:
 set timeoutlen=1000 ttimeoutlen=10
 
