@@ -1,4 +1,3 @@
-set termguicolors
 set nocompatible              
 set t_Co=256
 filetype off                  
