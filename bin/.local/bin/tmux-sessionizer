@@ -4,7 +4,12 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Documents/repos ~/repos -mindepth 1 -maxdepth 1 -type d | fzf)
+
+    # SCANDIRS is expected to be exported in the bashrc
+    # and should look like export $SCANDIRS="~/repos ~/secondrepolocation"...
+    # Here we expand the home directories
+    expanded_scandirs=$(echo $SCANDIRS | sed "s/~/${HOME//\//\\/}/g")
+    selected=$(find -H ${expanded_scandirs} -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
