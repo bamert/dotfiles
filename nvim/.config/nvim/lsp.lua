@@ -84,9 +84,27 @@ nvim_lsp["clangd"].setup {
     on_attach = on_attach,
     capabilities = require('cmp_nvim_lsp').update_capabilities(
       vim.lsp.protocol.make_client_capabilities()),
-      cmd = { 'clangd', '--background-index', "--enable-config"},
+    cmd = { 'clangd', '--background-index', "--enable-config"},
     flags = {
       debounce_text_changes = 150,
     }
-  }
+}
 
+-- Setup vscode's html lsp for embedded css/js
+nvim_lsp["html"].setup {
+    on_attach = on_attach,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(
+      vim.lsp.protocol.make_client_capabilities()),
+    cmd = { "vscode-html-language-server", "--stdio" }, 
+    initOptions = {
+        configurationSection = { "html", "css", "javascript" },
+        embeddedLanguages = {
+            css = true,
+            javascript = true
+        },
+        provideFormatter = true
+    },
+    flags = {
+        debounce_text_changes = 150,
+    }
+}
