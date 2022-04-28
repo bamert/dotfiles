@@ -19,13 +19,26 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+# Tmux isn't running (implies we are not in it, either)
+if [[ -z $tmux_running ]]; then
+    tmux new -s $selected_name -c $selected
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+# tmux is running, but we are not in it.
+if [[ -z $TMUX ]]; then
+    if ! tmux has-session -t=$selected_name 2> /dev/null; then
+        tmux new -s $selected_name -n $selected_name -c $selected
+    else
+        tmux a -t $selected_name 
+    fi
+    exit 0
+else
+    if ! tmux has-session -t=$selected_name 2> /dev/null; then
+        tmux new-session -ds $selected_name -n $selected_name -c $selected
+    fi
+    tmux switch-client -t $selected_name
+
 fi
 
-tmux switch-client -t $selected_name
+
