@@ -20,11 +20,11 @@ key_bindings:
 font:
   normal:
     family: JetBrains Mono NL
-    style: Regular #ExtraLight, Light, Regular, Medium
+    style: Light #, Light, Regular, Medium
 
 
   bold:
-    family: JetBrains Mono
+    family: JetBrains Mono NL
     style: Bold
 
   italic:

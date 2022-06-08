@@ -37,7 +37,8 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>br <cmd>Telescope git_branches<cr>
 " The following needs ripgrep to be installed
-nnoremap <leader>lg <cmd>Telescope live_grep<cr> 
+" nnoremap <leader>lg <cmd>Telescope live_grep<cr> 
+nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] }<cr>
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fb <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>ft <cmd>Telescope treesitter<cr>
