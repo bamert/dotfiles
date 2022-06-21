@@ -161,3 +161,41 @@ set undodir=~/.vim/undodir
 set undofile
 set noincsearch
 set nohls
+
+" Hide the X at the end of the tabline (see :h setting-tabline)
+function MyTabLabel(n)
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    let bufn =  bufname(buflist[winnr - 1])
+    if bufn == ""
+        let bufn = "[No Name]"
+    endif
+    return bufn
+endfunction
+
+function TabLineWithoutX()
+    let s = ''
+    for i in range(tabpagenr('$'))
+        " select the highlighting
+        if i + 1 == tabpagenr()
+          let s .= '%#TabLineSel#'
+        else
+          let s .= '%#TabLine#'
+        endif
+
+        " set the tab page number (for mouse clicks)
+        let s .= '%' . (i + 1) . 'T'
+
+        " Make the label for the tab
+        let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+    endfor
+
+    " after the last tab fill with TabLineFill and reset tab page nr
+    let s .= '%#TabLineFill#%T'
+
+    return s
+endfunction
+
+
+":set tabline=%!TabLineWithoutX()
+" Not enabled for now, because the modified symbol isn't working yet
