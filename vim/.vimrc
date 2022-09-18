@@ -99,13 +99,10 @@ set statusline +=%1*%4v\ %*             "virtual column number
 autocmd BufNewFile,BufRead *.cl set syntax=c
 
 "Spellcheck settings changes some highlighting, so do it after  colorschemes
-:hi clear SpellBad
-:hi clear SpellCap
-:hi clear SpellRare
-:hi clear SpellLocal
-:hi SpellBad cterm=underline
-:hi SpellCap cterm=underline
-:hi SpellLocal cterm=underline
+hi SpellBad   guisp=red    gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=underline
+hi SpellCap   guisp=yellow gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=underline
+hi SpellRare  guisp=blue   gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=underline
+hi SpellLocal guisp=orange gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=underline
 "Toggles spell checking:
 :map <leader>ll :setlocal spell! spelllang=en_us<CR>
 
