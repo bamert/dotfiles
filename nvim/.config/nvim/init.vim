@@ -45,7 +45,7 @@ nnoremap <leader>ft <cmd>Telescope treesitter<cr>
 
 " Lsp Diagnostics
 luafile ~/.config/nvim/lsp.lua
-hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red cterm=underline term=underline
 
 " Trouble (diagnostics)
 lua << EOF
