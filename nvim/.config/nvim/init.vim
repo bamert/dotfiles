@@ -44,6 +44,8 @@ nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep{ cwd = vim.f
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fb <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>ft <cmd>Telescope treesitter<cr>
+" We can improve mason lsp config (replace lsp.lua) as follows
+" https://github.com/williamboman/mason.nvim/discussions/57#discussioncomment-3129035
 lua require("mason").setup()
 lua require("mason-lspconfig").setup()
 " Lsp Diagnostics
