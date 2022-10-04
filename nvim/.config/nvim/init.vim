@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter' " quick uncommenting of lines
 Plug 'christoomey/vim-tmux-navigator'
 " nvim specific plugins
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
