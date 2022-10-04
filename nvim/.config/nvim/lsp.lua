@@ -66,7 +66,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Use a loop to call the default setup() on some language servers
-local servers = { 'pyright', 'tsserver'} 
+local servers = { 'pyright', 'tsserver', 'texlab'} 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
