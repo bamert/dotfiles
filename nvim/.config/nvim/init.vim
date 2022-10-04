@@ -24,7 +24,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 "Plug 'saadparwaiz1/cmp_luasnip'
 "Plug 'L3MON4D3/LuaSnip' 
 Plug 'ray-x/lsp_signature.nvim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 "Plug 'nvim-treesitter/playground'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
