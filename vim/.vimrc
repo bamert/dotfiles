@@ -106,6 +106,8 @@ hi SpellRare  guisp=blue   gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE cter
 hi SpellLocal guisp=orange gui=undercurl guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE term=underline cterm=underline
 "Toggles spell checking:
 :map <leader>ll :setlocal spell! spelllang=en_us<CR>
+"Runs a silent make 
+:map <leader>mm :silent make<CR>
 
 " Insert Booktabs table (needs to be installed)
 function! BooktabsHelper(args)

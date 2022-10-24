@@ -13,24 +13,26 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter' " quick uncommenting of lines
 Plug 'christoomey/vim-tmux-navigator'
 " nvim specific plugins
+"Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip' 
+"Plug 'saadparwaiz1/cmp_luasnip'
+"Plug 'L3MON4D3/LuaSnip' 
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
-Plug 'nvim-treesitter/playground'
+"Plug 'nvim-treesitter/playground'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'ThePrimeagen/harpoon'
-Plug 'vim-test/vim-test'
+"Plug 'vim-test/vim-test'
 call plug#end()
 " Treesiter highlighting
-lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
+"lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 " Telescope 
 lua require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",".git"} } } 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -42,7 +44,10 @@ nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep{ cwd = vim.f
 nnoremap <leader>fc <cmd>Telescope git_commits<cr>
 nnoremap <leader>fb <cmd>Telescope git_bcommits<cr>
 nnoremap <leader>ft <cmd>Telescope treesitter<cr>
-
+" We can improve mason lsp config (replace lsp.lua) as follows
+" https://github.com/williamboman/mason.nvim/discussions/57#discussioncomment-3129035
+lua require("mason").setup()
+lua require("mason-lspconfig").setup()
 " Lsp Diagnostics
 luafile ~/.config/nvim/lsp.lua
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red cterm=underline term=underline
@@ -71,12 +76,6 @@ nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 
-" Setup harpoon with telescope
-lua require("telescope").load_extension('harpoon')
-nnoremap <leader>ha <cmd> lua require("harpoon.mark").add_file()<cr>
-nnoremap <leader>hr <cmd> lua require("harpoon.mark").rm_file()<cr>
-nnoremap <leader>hv :lua require("harpoon.mark").to_quickfix_list() <cr> :copen <cr> 
-nnoremap <leader>hq <cmd> lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 " yanking copies into system clipboard
 set clipboard+=unnamedplus
