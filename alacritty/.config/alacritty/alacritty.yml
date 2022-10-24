@@ -19,7 +19,7 @@ key_bindings:
 
 font:
   normal:
-    family: JetBrains Mono NL
+    family: JetBrains Mono NL 
     style: Light #, Light, Regular, Medium
 
 
