@@ -17,6 +17,8 @@ URxvt.internalBorder: 4
 
 URxvt.scrollBar: false
 URxvt.depth:24
-URxvt.font:xft:JetBrains Mono NL :size=10
-URxvt.boldFont:xft:JetBrains Mono NL:size=10
+!!URxvt.font:xft:JetBrains Mono NL :size=10
+!!URxvt.boldFont:xft:JetBrains Mono NL:size=10
+URxvt.font:xft:Iosevka Term:size=10:style=Regular
+URxvt.boldFont:xft:Iosevka Term:size=10:style=Bold
 
