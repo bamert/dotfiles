@@ -65,13 +65,16 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- Update capabilities
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
+      vim.lsp.protocol.make_client_capabilities())
 -- Use a loop to call the default setup() on some language servers
+--
 local servers = { 'pyright', 'tsserver', 'texlab'} 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
     }
@@ -82,8 +85,7 @@ end
 -- This can contain formatting settings / linting rules
 nvim_lsp["clangd"].setup {
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     cmd = { 'clangd', '--background-index', "--enable-config"},
     flags = {
       debounce_text_changes = 150,
@@ -93,8 +95,7 @@ nvim_lsp["clangd"].setup {
 -- Setup vscode's html lsp for embedded css/js
 nvim_lsp["html"].setup {
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
     cmd = { "vscode-html-language-server", "--stdio" }, 
     initOptions = {
         configurationSection = { "html", "css", "javascript" },
