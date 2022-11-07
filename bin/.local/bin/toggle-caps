@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Toggles caps lock in case it get stuck in on state
+xdotool key Caps_Lock

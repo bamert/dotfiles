@@ -29,8 +29,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/trouble.nvim'
-"Plug 'vim-test/vim-test'
+Plug 'vim-test/vim-test'
 call plug#end()
+nmap <silent> <leader>tn :TestNearest<CR>
 " Treesiter highlighting
 "lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 " Telescope 
