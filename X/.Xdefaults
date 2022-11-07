@@ -21,13 +21,5 @@ Xft*antialias: true
 Xft*rgba: rgb
 Xft*hinting: true
 Xft*hintstyle: hindslight
-urxvt.background: #000000
-urxvt.foreground: #ffffff
-urxvt*transparent: true
-urxvt*shading: 15
-urxvt.internalBorder: 4
 
-urxvt.scrollBar: false
-URxvt.depth:24
-URxvt*font:xft:Ubuntu Mono:pixelsize=13
-URxvt*boldFont:xft:Ubuntu Mono:pixelsize=13
+

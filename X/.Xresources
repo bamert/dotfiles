@@ -6,9 +6,19 @@ Xft*hintstyle: hintslight
 urxvt.background: #000000
 urxvt.foreground: #ffffff
 urxvt.scrollBar: false
-URxvt*font:xft:Ubuntu Mono:pixelsize=13
-URxvt*boldFont:xft:Ubuntu Mono:pixelsize=13
-URxvt.keysym.C-plus: font-size:increase
-URxvt.keysym.C-minus: font-size:increase
+URxvt.keysym.C-0: font-size:reset
+URxvt.keysym.C-minus: font-size:decrease
 URxvt.keysym.C-equal: font-size:increase
+URxvt.background: #000000
+URxvt.foreground: #ffffff
+URxvt*transparent: true
+URxvt*shading: 15
+URxvt.internalBorder: 4
+
+URxvt.scrollBar: false
+URxvt.depth:24
+!!URxvt.font:xft:JetBrains Mono NL :size=10
+!!URxvt.boldFont:xft:JetBrains Mono NL:size=10
+URxvt.font:xft:Iosevka Term:size=10:style=Regular
+URxvt.boldFont:xft:Iosevka Term:size=10:style=Bold
 
