@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Takes input from an nvim prompt and prints it after closing
+# Also takes an argument to source the initial input from a file
+set -e
+tmpfile=$(mktemp /tmp/edit_with_nvim.XXXXXX)
+if [ "$#" -eq 1 ]; then
+    cp $1 $tmpfile
+fi
+nvim $tmpfile
+cat $tmpfile
+rm "$tmpfile"
