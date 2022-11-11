@@ -36,7 +36,7 @@ volume master {
 }
 battery all {
     format = "%status %percentage" 
-    status_chr = ""
+    status_chr = " "
     status_bat = ""
     status_unk = ""
     status_full = ""
@@ -49,6 +49,10 @@ tztime local {
 load {
     format = " %1min"
 }
+cpu_temperature 0 {
+    format = "%degrees°C"
+    path = "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input"
+}
 
 disk "/" {
     format = " %avail"
@@ -56,8 +60,9 @@ disk "/" {
 #
 #order += "ipv6"
 order += "wireless _first_"
-order += "disk /"
 order += "load"
+order += "cpu_temperature 0"
+order += "disk /"
 order += "memory"
 order += "volume master"
 order += "battery all"
