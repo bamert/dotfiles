@@ -140,7 +140,7 @@ function! OpenURLUnderCursor()
 set showcmd
 
 " Omnicompletion (without plugin)
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone
 
 "autocmd FileType python set omnifunc=python3complete#Complete
 "
