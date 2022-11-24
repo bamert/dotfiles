@@ -31,6 +31,7 @@ Plug 'folke/trouble.nvim'
 Plug 'vim-test/vim-test'
 call plug#end()
 nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
 " Treesiter highlighting
 "lua require'nvim-treesitter.configs'.setup {highlight = { enable = true }}
 " Telescope 
