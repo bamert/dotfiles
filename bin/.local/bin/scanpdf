@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+if [ "$#" -ne 1 ]; then
+    echo "Usage: ./scanpdf somefile.pdf"
+    exit 1;
+fi
+if [ -f $1 ]; then
+    # Scan into temp file
+    scanned_page=$(mktemp /tmp/scanned-page.XXXXXX)
+    scanimage --resolution 250 --format pnm --mode Gray -x 210 -y 297 | pnmtops -imagewidth=8.3 -imageheight=11.7 | ps2pdf - $scanned_page
+    # Copy existing file to temp
+    existing_pdf_copy=$(mktemp /tmp/exisiting-pdf.XXXXXX)
+    cp $1 $existing_pdf_copy
+    pdfunite $existing_pdf_copy $scanned_page $1
+    rm $existing_pdf_copy
+    rm $scanned_page
+else
+    # File doesn't exist. Create a new one
+    scanimage --resolution 250 --format pnm --mode Gray -x 210 -y 297 | pnmtops -imagewidth=8.3 -imageheight=11.7 | ps2pdf - $1
+fi
