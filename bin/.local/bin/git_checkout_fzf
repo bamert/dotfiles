@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+# We receive piped content into a buffer
+git checkout $(git branch | fzf)
