@@ -24,6 +24,14 @@ filetype plugin indent on    " required
 
 set diffopt+=vertical
 set number "linenumbers
+" Automatically toggle between line number modes
+" https://jeffkreeftmeijer.com/vim-number/
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 syntax on
 
 " Former colorschemes: evening, seoul256
