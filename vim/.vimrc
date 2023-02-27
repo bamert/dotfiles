@@ -40,7 +40,7 @@ set timeoutlen=1000 ttimeoutlen=10
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
-map <C-m> :NERDTreeFind<CR>
+map <leader>nf :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'

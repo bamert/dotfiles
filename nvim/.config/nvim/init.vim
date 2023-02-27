@@ -89,3 +89,4 @@ nnoremap <leader>yf :%y+<CR>
 
 " vim fugitive show patches for current file
 command! Glog Git log -p --follow -- %
+
