@@ -2,8 +2,13 @@ return require('packer').startup(function(use)
 
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+use 'vim-scripts/DoxygenToolkit.vim'
+use 'scrooloose/nerdtree'
+use 'scrooloose/nerdcommenter' 
+use 'christoomey/vim-tmux-navigator'
+
 --use 'morhetz/gruvbox'
-use { "ellisonleao/gruvbox.nvim" }
+--use({ "ellisonleao/gruvbox.nvim", vim.cmd("colorscheme gruvbox")})
 use 'tpope/vim-fugitive'
 use 'vim-scripts/DoxygenToolkit.vim'
 use 'scrooloose/nerdtree'
@@ -32,7 +37,6 @@ use 'nvim-lua/plenary.nvim'
 use 'nvim-telescope/telescope.nvim'
 use 'folke/trouble.nvim'
 use 'vim-test/vim-test'
---[[
 use({
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -41,7 +45,6 @@ use({
     vim.cmd('colorscheme rose-pine')
     end
     })
---]]
 end)
 
 

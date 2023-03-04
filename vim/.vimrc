@@ -8,16 +8,6 @@ set encoding=utf-8
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 "call plug#begin()
-call plug#begin('~/.local/shared/vim/plugged')
-"Plug 'VundleVim/Vundle.vim'
-Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive'
-"Plugin 'DoxygenToolkit.vim'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter' " quick uncommenting of lines
-Plug 'christoomey/vim-tmux-navigator'
-call plug#end()           
 set nofoldenable
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:

@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+set -e #fail immediately on error
+# Get scanner name with scanimage -L
+SCANNER_NAME="airscan:e0:EPSON ET-3700 Series"
 if [ "$#" -ne 1 ]; then
     echo "Usage: ./scanpdf somefile.pdf"
     exit 1;
@@ -6,7 +9,7 @@ fi
 if [ -f $1 ]; then
     # Scan into temp file
     scanned_page=$(mktemp /tmp/scanned-page.XXXXXX)
-    scanimage --resolution 250 --format pnm --mode Gray -x 210 -y 297 | pnmtops -imagewidth=8.3 -imageheight=11.7 | ps2pdf - $scanned_page
+    scanimage -d "$SCANNER_NAME" --resolution 200 --format pnm --mode Gray -x 210 -y 297 | pnmtops -imagewidth=8.3 -imageheight=11.7 | ps2pdf - $scanned_page
     # Copy existing file to temp
     existing_pdf_copy=$(mktemp /tmp/exisiting-pdf.XXXXXX)
     cp $1 $existing_pdf_copy
@@ -15,5 +18,5 @@ if [ -f $1 ]; then
     rm $scanned_page
 else
     # File doesn't exist. Create a new one
-    scanimage --resolution 250 --format pnm --mode Gray -x 210 -y 297 | pnmtops -imagewidth=8.3 -imageheight=11.7 | ps2pdf - $1
+    scanimage -d "$SCANNER_NAME" --resolution 200 --format pnm --mode Gray -x 210 -y 297 | pnmtops -imagewidth=8.3 -imageheight=11.7 | ps2pdf - $1
 fi
