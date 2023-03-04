@@ -55,6 +55,12 @@ vim.opt.hls=false
 vim.opt.completeopt="menu,menuone"
 -- folds
 vim.opt.foldenable=false
+-- colorscheme
+vim.cmd("colorscheme gruvbox")
+--- @usage 'auto'|'main'|'moon'|'dawn'
+--  variant = 'auto',
+--      --- @usage 'main'|'moon'|'dawn'
+--          dark_variant = 'main',
 -- I think the following doesnt work yet
 vim.cmd("highlight clear SignColumn")
 

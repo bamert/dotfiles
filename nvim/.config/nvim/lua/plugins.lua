@@ -8,12 +8,8 @@ use 'scrooloose/nerdcommenter'
 use 'christoomey/vim-tmux-navigator'
 
 --use 'morhetz/gruvbox'
---use({ "ellisonleao/gruvbox.nvim", vim.cmd("colorscheme gruvbox")})
+use "ellisonleao/gruvbox.nvim"
 use 'tpope/vim-fugitive'
-use 'vim-scripts/DoxygenToolkit.vim'
-use 'scrooloose/nerdtree'
-use 'scrooloose/nerdcommenter' -- quick uncommenting of lines
-use 'christoomey/vim-tmux-navigator'
 -- nvim specific plugins
 use 'williamboman/mason.nvim'
 use 'williamboman/mason-lspconfig.nvim'
@@ -37,14 +33,15 @@ use 'nvim-lua/plenary.nvim'
 use 'nvim-telescope/telescope.nvim'
 use 'folke/trouble.nvim'
 use 'vim-test/vim-test'
-use({
+use 'rose-pine/neovim'
+--[[use({
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
-    require("rose-pine").setup()
     vim.cmd('colorscheme rose-pine')
     end
     })
+--]]
 end)
 
 
