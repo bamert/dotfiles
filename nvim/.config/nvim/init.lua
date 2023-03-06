@@ -39,7 +39,11 @@ vim.opt.laststatus=2
 --vim.opt.statusline = "%1*\ %n\ %*"
 function my_statusline()
     local branch = vim.fn.FugitiveHead()
-    return '%F %= '..branch..' %l/%L %v'
+    if branch then
+        return '%F ['..branch..'] %= %l/%L %v'
+    else
+        return '%F  %= %l/%L %v'
+    end
 end
 
 vim.cmd[[ set statusline=%!luaeval('my_statusline()') ]]
