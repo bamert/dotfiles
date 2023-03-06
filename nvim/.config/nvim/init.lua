@@ -56,6 +56,7 @@ vim.opt.completeopt="menu,menuone"
 -- folds
 vim.opt.foldenable=false
 -- colorscheme
+vim.opt.bg = 'dark'
 vim.cmd("colorscheme gruvbox")
 --- @usage 'auto'|'main'|'moon'|'dawn'
 --  variant = 'auto',
