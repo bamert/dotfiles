@@ -48,7 +48,7 @@ end
 
 vim.cmd[[ set statusline=%!luaeval('my_statusline()') ]]
 -- Backups and undoing
-vim.opt.undodir = "~/.vim/nvimundodir" --Undo file version incompatible with vim
+vim.opt.undodir = vim.fn.expand("$HOME/.vim/nvimundodir") --Undo file version incompatible with vim
 vim.opt.undofile = true
 vim.opt.swapfile=false
 vim.opt.backup=false
