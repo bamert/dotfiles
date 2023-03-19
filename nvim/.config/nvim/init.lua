@@ -40,9 +40,9 @@ vim.opt.laststatus=2
 function my_statusline()
     local branch = vim.fn.FugitiveHead()
     if branch and #branch > 0 then
-        return '%F ['..branch..'] %= %l/%L %v'
+        return '%F %m ['..branch..'] %= %l/%L %v'
     else
-        return '%F  %= %l/%L %v'
+        return '%F  %m %= %l/%L %v'
     end
 end
 
