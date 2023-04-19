@@ -16,3 +16,7 @@ vim.keymap.set("", "<leader>ll", "<cmd>setlocal spell! spelllang=en_us<CR>")
 
 -- other bindings
 vim.keymap.set("", "<leader>mm", "<cmd>silent make<cr>")
+
+vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen master<cr>", {})
+vim.keymap.set("n", "<leader>dvc", "<cmd>DiffviewClose<cr>", {})
+vim.keymap.set("n", "<leader>dvr", "<cmd>DiffviewRefresh<cr>", {})

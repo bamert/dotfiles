@@ -2,6 +2,10 @@ require('plugins')
 require('remap')
 require('telescopex')
 require('lsp')
+
+require("diffview").setup({
+    use_icons = false        -- Requires nvim-web-devicons
+})
 vim.opt.belloff = 'all'
 vim.opt.errorbells = false
 vim.opt.nu = true

@@ -27,9 +27,8 @@ use {
 }
 --
 --
---'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
---Plug 'nvim-treesitter/playground'
 use 'nvim-lua/plenary.nvim'
+use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 use 'nvim-telescope/telescope.nvim'
 use 'folke/trouble.nvim'
 use 'vim-test/vim-test'
