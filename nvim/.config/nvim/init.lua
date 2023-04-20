@@ -1,11 +1,11 @@
 require('plugins')
 require('remap')
-require('telescopex')
 require('lsp')
 
 require("diffview").setup({
     use_icons = false        -- Requires nvim-web-devicons
 })
+
 vim.opt.belloff = 'all'
 vim.opt.errorbells = false
 vim.opt.nu = true
@@ -23,24 +23,22 @@ vim.opt.expandtab=true
 vim.opt.cursorline=true
 vim.opt.timeoutlen=1000
 vim.opt.ttimeoutlen=10
+
 -- open new splits on right and below
 vim.opt.splitbelow=true
 vim.opt.splitright=true
-vim.opt.path:append("**") --set path+=** (include subdirs in search path)
+
+-- (include subdirs in search path)
+vim.opt.path:append("**") 
 vim.opt.wildmenu=true
--- No tilde in empty lines
--- highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
--- The following only works for normal buffers in neovim, but not in nerdtree
-vim.wo.fillchars='eob: '
 
 vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeDirArrowExpandable = '+'
 vim.g.NERDTreeDirArrowCollapsible = '-'
 vim.g.NERDTreeMinimalUI=1
 
--- statusline
+-- minimal buffer statusline [branchname]
 vim.opt.laststatus=2
---vim.opt.statusline = "%1*\ %n\ %*"
 function my_statusline()
     local branch = vim.fn.FugitiveHead()
     if branch and #branch > 0 then
@@ -51,28 +49,28 @@ function my_statusline()
 end
 
 vim.cmd[[ set statusline=%!luaeval('my_statusline()') ]]
+
 -- Backups and undoing
 vim.opt.undodir = vim.fn.expand("$HOME/.vim/nvimundodir") --Undo file version incompatible with vim
 vim.opt.undofile = true
 vim.opt.swapfile=false
 vim.opt.backup=false
+
 -- Search
 vim.opt.incsearch=false
 vim.opt.hls=false
+
 -- completion
 vim.opt.completeopt="menu,menuone"
+
 -- folds
 vim.opt.foldenable=false
+
 -- colorscheme
+require("gruvbox").setup({contrast = "soft"})
 vim.opt.bg = 'dark'
 vim.cmd("colorscheme gruvbox")
---- @usage 'auto'|'main'|'moon'|'dawn'
---  variant = 'auto',
---      --- @usage 'main'|'moon'|'dawn'
---          dark_variant = 'main',
--- I think the following doesnt work yet
 vim.cmd("highlight clear SignColumn")
-
 
 -- leave vim test window in normal mode (don't quit on keystroke)
 vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
