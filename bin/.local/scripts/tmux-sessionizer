@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 # adapted from https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
+set -e
+# env var SCANDIRS should contain all the directories that 
+# we want to search non-recursively. For instance to find
+# ~/repos/repoa, ~/repos/repob, set SCANDIRS="~/repos"
+ensure_env_defined SCANDIRS
+# Expand the home directories
+expanded_scandirs=$(echo $SCANDIRS | sed "s/~/${HOME//\//\\/}/g")
 
 if [[ $# -eq 1 ]]; then
-    selected=$1
+    # Invocation with search query. Immediately selects result if unique
+    selected=$(find -H ${expanded_scandirs} -mindepth 1 -maxdepth 1 -type d | fzf -1 -q $1)
 else
-
-    # SCANDIRS is expected to be exported in the bashrc
-    # and should look like export $SCANDIRS="~/repos ~/secondrepolocation"...
-    # Here we expand the home directories
-    expanded_scandirs=$(echo $SCANDIRS | sed "s/~/${HOME//\//\\/}/g")
+    # Invocation without query.
     selected=$(find -H ${expanded_scandirs} -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
@@ -38,7 +42,4 @@ else
         tmux new-session -ds $selected_name -n $selected_name -c $selected
     fi
     tmux switch-client -t $selected_name
-
 fi
-
-
