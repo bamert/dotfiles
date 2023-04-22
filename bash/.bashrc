@@ -49,6 +49,11 @@ export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 set -o vi # Vim mode
 alias prj="~/.local/scripts/tmux-sessionizer"
 
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+export PATH="/home/nb/.local/scripts:$PATH"
+
 if [ -f ~/.bashrc.work ]; then
     source ~/.bashrc.work
 fi
