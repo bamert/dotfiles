@@ -70,8 +70,7 @@ end
 -- Update capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
       vim.lsp.protocol.make_client_capabilities())
--- Use a loop to call the default setup() on some language servers
---
+-- Setup default for some of the language servers
 local servers = { 'pyright', 'tsserver', 'texlab'} 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -83,8 +82,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 -- For C/c++ we use clangd. Here we want extra flags that enable parsing the
--- .clangd file which may be present in the project root.
--- This can contain formatting settings / linting rules
+-- .clangd file which may be present in the project root (can contain format/linting rules)
 nvim_lsp["clangd"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
