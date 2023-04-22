@@ -67,7 +67,7 @@ vim.opt.completeopt="menu,menuone"
 vim.opt.foldenable=false
 
 -- colorscheme
-require("gruvbox").setup({contrast = "soft"})
+require("gruvbox").setup({contrast = "hard"})
 vim.opt.bg = 'dark'
 vim.cmd("colorscheme gruvbox")
 vim.cmd("highlight clear SignColumn")
