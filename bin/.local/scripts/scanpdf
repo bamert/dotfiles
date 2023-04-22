@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e #fail immediately on error
 # Get scanner name with scanimage -L
-SCANNER_NAME="airscan:e0:EPSON ET-3700 Series"
+ensure_env_defined SCANNER_NAME
 if [ "$#" -ne 1 ]; then
     echo "Usage: ./scanpdf somefile.pdf"
     exit 1;

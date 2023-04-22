@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 for var in "$@"
 do
-    if [ -z ${!var} ]; then
+    if [ -z "${!var}" ]; then
         # variable named $var is not defined 
         echo "env variable $var is undefined"
         exit 1
