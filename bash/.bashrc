@@ -45,9 +45,16 @@ fi
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+export EDITOR="vim"
+export VISUAL="vim"
+if command -v nvim &> /dev/null
+then
+    alias vim="nvim"
+fi
 set -o vi # Vim mode
+export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 alias prj="~/.local/scripts/tmux-sessionizer"
+export PATH="/home/nb/.local/scripts:$PATH"
 
 if [ -f ~/.bashrc.work ]; then
     source ~/.bashrc.work
