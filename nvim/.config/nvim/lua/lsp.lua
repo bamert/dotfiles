@@ -18,7 +18,7 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     -- Automatically select first item on tab
-    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+    --['<Tab>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
     { name = 'nvim_lsp' },
