@@ -18,6 +18,16 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvi
 ```
 followed by `:PackerSync` in neovim.
 
+The installed plugins include support for:
+- Python/Typescript/Cpp Language Server Support (autocompletes, code actions etc)
+- vim-test for interactive test runs of test suites or individual tests
+- diffview for diff inspection
+- fugitive for git 
+- Telescope for file navigation
+- Treesitter highlighting
+- Github Copilot support
+
+
 ## Vim setup
 Install `Vundle` to manage vim packages. **NOTE** Wherever available, I use `neovim`. The Vim config isn't actively maintained.
 The neovim config is completely `lua` based and does not require the vim configs in order to function.
