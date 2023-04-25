@@ -1,5 +1,5 @@
 ## General
-The configs in this repo are arranged such that they can be easily setup as symlinks with [GNU Stow](https://www.gnu.org/software/stow/).
+The configs in this repo are arranged such that they can be easily set up as symlinks with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ```
 git clone https://github.com/bamert/dotfiles.nvim ~/dotfiles
@@ -8,7 +8,8 @@ cd ~/dotfiles && stow tmux nvim ...
 
 - the tmux config is adapted for the Kitty terminal
 - I remap caps lock to esc when tapped and ctrl when pressed together with another key. For this I use [keyd](https://github.com/rvaiya/keyd)
-- The `skhd` config disables the middle mouse button paste (gets in the way when scrolling with a Trackpoint on Thinkpad)
+- The `skhd` config disables the middle mouse button paste (gets in the way when scrolling with a trackpoint on Thinkpad)
+- I use the [Iosevka](https://github.com/be5invis/Iosevka) font.
 
 ## NeoVim Setup
 Install `packer` to manage neovim packages [Github](https://github.com/wbthomason/packer.nvim). 
