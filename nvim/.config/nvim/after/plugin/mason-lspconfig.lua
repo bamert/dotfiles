@@ -1,3 +1,3 @@
 require('mason-lspconfig').setup{
-ensure_installed = { "pyright", "tsserver", "texlab", "clangd" },
+ensure_installed = { "pyright", "tsserver", "texlab"},
 }
