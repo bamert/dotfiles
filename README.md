@@ -1,19 +1,24 @@
-# Installation
-Install using [GNU Stow](https://www.gnu.org/software/stow/):
+## General
+The configs in this repo are arranged such that they can be easily setup as symlinks with [GNU Stow](https://www.gnu.org/software/stow/).
+
 ```
-stow git tmux nvim kitty ...
+git clone https://github.com/bamert/dotfiles.nvim ~/dotfiles
+cd ~/dotfiles && stow tmux nvim ...
 ```
 
-# Setup Nvim
-My neovim configs are lua based. Install `packer` to manager neovim packages [Github](https://github.com/wbthomason/packer.nvim). 
+- the tmux config is adapted for the Kitty terminal
+- I remap caps lock to esc when tapped and ctrl when pressed together with another key. For this I use [keyd](https://github.com/rvaiya/keyd)
+- The `skhd` config disables the middle mouse button paste (gets in the way when scrolling with a Trackpoint on Thinkpad)
+
+## NeoVim Setup
+Install `packer` to manage neovim packages [Github](https://github.com/wbthomason/packer.nvim). 
 ```
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 followed by `:PackerSync` in neovim.
 
-# Setup vim
-install `Vundle` for manager vim packages
+## Vim setup
+Install `Vundle` for manager vim packages. Vim config isn't actively maintained
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
