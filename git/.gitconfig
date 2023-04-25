@@ -9,4 +9,4 @@
   lg = !"git lg1"
   br = branch --sort=-committerdate
 [user]
-	name = 
+  name = 
