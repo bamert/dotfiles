@@ -12,7 +12,7 @@ cd ~/dotfiles && stow tmux nvim ...
 - I use the [Iosevka](https://github.com/be5invis/Iosevka) font.
 
 ## NeoVim Setup
-Install `packer` to manage neovim packages [Github](https://github.com/wbthomason/packer.nvim). 
+Install [Packer](https://github.com/wbthomason/packer.nvim) to manage neovim packages. 
 ```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
