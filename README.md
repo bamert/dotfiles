@@ -19,7 +19,8 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvi
 followed by `:PackerSync` in neovim.
 
 ## Vim setup
-Install `Vundle` for manager vim packages. **NOTE** Wherever available, I use `neovim`. The Vim config isn't actively maintained.
+Install `Vundle` to manage vim packages. **NOTE** Wherever available, I use `neovim`. The Vim config isn't actively maintained.
+The neovim config is completely `lua` based and does not require the vim configs in order to function.
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
