@@ -73,5 +73,5 @@ vim.cmd("colorscheme gruvbox")
 vim.cmd("highlight clear SignColumn")
 
 -- leave vim test window in normal mode (don't quit on keystroke)
-vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
-vim.cmd("let g:test#basic#start_normal = 1") -- If using basic strategy
+--vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
+--vim.cmd("let g:test#basic#start_normal = 1") -- If using basic strategy

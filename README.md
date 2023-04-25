@@ -7,8 +7,8 @@ cd ~/dotfiles && stow tmux nvim ...
 ```
 
 - the tmux config is adapted for the Kitty terminal
-- I remap caps lock to esc when tapped and ctrl when pressed together with another key. For this I use [keyd](https://github.com/rvaiya/keyd)
-- The `skhd` config disables the middle mouse button paste (gets in the way when scrolling with a trackpoint on Thinkpad)
+- I remap caps lock to esc when tapped and ctrl when pressed together with another key. For this I use [keyd](https://github.com/rvaiya/keyd) on Linux and [karabiner-elements](https://karabiner-elements.pqrs.org/) on macOS.
+- The `sxhkd` config disables the middle mouse button paste (gets in the way when scrolling with a trackpoint on Thinkpad)
 - I use the [Iosevka](https://github.com/be5invis/Iosevka) font.
 
 ## NeoVim Setup
