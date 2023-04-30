@@ -68,6 +68,11 @@ vim.opt.foldenable=false
 
 -- colorscheme
 require("gruvbox").setup({contrast = "hard"})
+require('rose-pine').setup({
+    variant = 'main',
+	dark_variant = 'main',
+})
+
 vim.opt.bg = 'dark'
 vim.cmd("colorscheme gruvbox")
 vim.cmd("highlight clear SignColumn")
