@@ -26,5 +26,5 @@ use {'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 use 'nvim-telescope/telescope.nvim'
 use 'folke/trouble.nvim'
 use 'vim-test/vim-test'
-use 'rose-pine/neovim'
+use ({'rose-pine/neovim', as ='rose-pine'})
 end)
