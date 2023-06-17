@@ -8,5 +8,5 @@
   lgm = log --merges --pretty=format:'%h - %s' master
   lg = !"git lg1"
   br = branch --sort=-committerdate
-[user]
-  name = 
+[include]
+    path = ~/.gituser
