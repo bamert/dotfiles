@@ -56,6 +56,9 @@ export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 alias prj="~/.local/scripts/tmux-sessionizer"
 export PATH="~/.local/scripts:$PATH"
 
+# Browse diffs of merged branch and its parent on master
+alias gh="git log --first-parent master --pretty=format:'%h %s' | fzf --no-sort --preview 'echo {} | cut -c 1-7 | xargs -I {} git diff --color {}^ {}'"
+
 if [ -f ~/.bashrc.work ]; then
     source ~/.bashrc.work
 fi
