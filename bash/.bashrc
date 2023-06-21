@@ -54,10 +54,32 @@ fi
 set -o vi # Vim mode
 export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 alias prj="~/.local/scripts/tmux-sessionizer"
+alias gck="~/.local/scripts/git_checkout_fzf"
+
 export PATH="~/.local/scripts:$PATH"
 
-# Browse diffs of merged branch and its parent on master
-alias gh="git log --first-parent master --pretty=format:'%h %s' | fzf --no-sort --preview 'echo {} | cut -c 1-7 | xargs -I {} git diff --color {}^ {}'"
+# Returns 0 if vim has the given command, else 1
+vim_has_command() {
+    vim -es -N -c "if exists(':$1') | q | else | cq | endif"
+    return $?
+}
+
+# Usage: mhchanges <path>. If empty, defaults to all changes
+mhchanges() {
+    commit=$(git log --first-parent master --pretty=format:'%h %cd %s' --date=format:'%Y-%m-%d %H:%M' -- $1 \
+        | fzf --no-sort --preview "echo {} | cut -c 1-7 | xargs -I {} git diff --color --stat {}^ {}" \
+        | cut -c 1-7)
+    if [ -z "$commit" ]; then
+        return
+    fi
+    if vim_has_command "DiffviewOpen"; then
+        # Uses https://github.com/sindrets/diffview.nvim
+        nvim -c "DiffviewOpen ${commit}^..$commit" 
+    else
+        git diff ${commit}^ $commit
+    fi
+
+}
 
 if [ -f ~/.bashrc.work ]; then
     source ~/.bashrc.work
