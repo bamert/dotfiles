@@ -66,8 +66,9 @@ vim_has_command() {
     return $?
 }
 
+# View diffs that past (merged) MRs introduced
 # Usage: mhchanges <path>. If empty, defaults to all changes
-mhchanges() {
+mhmerged() {
     commit=$(git log --first-parent master --pretty=format:'%h %cd %s' --date=format:'%Y-%m-%d %H:%M' -- $1 \
         | fzf --no-sort --preview "echo {} | cut -c 1-7 | xargs -I {} git diff --color --stat {}^ {}" \
         | cut -c 1-7)
@@ -80,7 +81,19 @@ mhchanges() {
     else
         git diff ${commit}^ $commit
     fi
-
+}
+mhopen() {
+    branch=$(git branch --format="%(refname)" | fzf --no-sort)  # No preview for now--preview "git diff --color --stat {}..{}" \
+    if [ -z "$branch" ]; then
+        return
+    fi
+    merge_base=$(git merge-base master $branch)
+    if vim_has_command "DiffviewOpen"; then
+        # Uses https://github.com/sindrets/diffview.nvim
+        nvim -c "DiffviewOpen ${merge_base}..$branch" 
+    else
+        git diff ${merge_base}..$branch
+    fi
 }
 
 if [ -f ~/.bashrc.work ]; then
