@@ -67,8 +67,9 @@ vim_has_command() {
 }
 
 # View diffs that past (merged) MRs introduced
-# Usage: mhchanges <path>. If empty, defaults to all changes
-mhmerged() {
+# <path> optionally filters and shows only MRs that changed files in <path>
+# Usage: bmerged <path>. If empty, defaults to all changes
+bmerged() {
     commit=$(git log --first-parent master --pretty=format:'%h %cd %s' --date=format:'%Y-%m-%d %H:%M' -- $1 \
         | fzf --no-sort --preview "echo {} | cut -c 1-7 | xargs -I {} git diff --color --stat {}^ {}" \
         | cut -c 1-7)
@@ -82,7 +83,10 @@ mhmerged() {
         git diff ${commit}^ $commit
     fi
 }
-mhopen() {
+
+# View diffs of current branches vs master
+# Usage: bopen 
+bopen() {
     branch=$(git branch --format="%(refname)" | fzf --no-sort)  # No preview for now--preview "git diff --color --stat {}..{}" \
     if [ -z "$branch" ]; then
         return
