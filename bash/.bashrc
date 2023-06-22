@@ -56,7 +56,9 @@ export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 alias prj="~/.local/scripts/tmux-sessionizer"
 alias gck="~/.local/scripts/git_checkout_fzf"
 
-export PATH="~/.local/scripts:$PATH"
+export LOCAL_INSTALL_PREFIX=~/.local
+export PATH="$LOCAL_INSTALL_PREFIX/scripts:$PATH"
+export PATH="$LOCAL_INSTALL_PREFIX/bin:$PATH"
 
 # Returns 0 if vim has the given command, else 1
 vim_has_command() {
