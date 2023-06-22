@@ -53,12 +53,12 @@ then
 fi
 set -o vi # Vim mode
 export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
-alias prj="~/.local/scripts/tmux-sessionizer"
-alias gck="~/.local/scripts/git_checkout_fzf"
 
 export LOCAL_INSTALL_PREFIX=~/.local
 export PATH="$LOCAL_INSTALL_PREFIX/scripts:$PATH"
 export PATH="$LOCAL_INSTALL_PREFIX/bin:$PATH"
+alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
+alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
 
 # Returns 0 if vim has the given command, else 1
 vim_has_command() {
