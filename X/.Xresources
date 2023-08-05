@@ -21,5 +21,11 @@ URxvt.depth:24
 !!URxvt.boldFont:xft:JetBrains Mono NL:size=10
 URxvt.font:xft:Iosevka Term Regular:size=14:style=Regular
 URxvt.italicFont:xft:Iosevka Term Regular:size=14:style=Italic
-URxvt.boldFont:xft:Iosevka Term:size=14:style=Bold
-
+URxvt.boldFont:xft:Iosevka Term Regular:size=14:style=Bold
+URxvt.boldItalicFont:xft:Iosevka Term Regular:size=14:style=Bold Italic
+!! iso mode is on ctrl-shift keybining. I hope this disables that keybinding
+URxvt.iso14755: false 
+URxvt.iso14755_52: false
+!! Copy / Paste keybinding (not working yet due to lack of well-defined copy/paste clipboard cmds)
+URxvt.keysym.Ctrl-Shift-C: eval:copy_clipboard
+URxvt.keysym.Ctrl-Shift-V: eval:paste_clipboard
