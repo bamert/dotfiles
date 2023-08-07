@@ -99,6 +99,26 @@ bopen() {
         git diff ${merge_base}..$branch
     fi
 }
+rhist() {
+# Use fzf to select a command from history, then edit with $EDITOR
+selected_command=$(history | awk '{$1=""; print $0}' | tac | fzf)
+
+if [[ -n $selected_command ]]; then
+    # Write selected command to a temporary file
+    tmpfile=$(mktemp)
+    echo -e "$selected_command" > "$tmpfile"
+
+    # Edit the command with the user's preferred editor
+    ${EDITOR:-vi} "$tmpfile"
+
+    # Read the command back from the temporary file, then run it
+    read -r edited_command < "$tmpfile"
+    eval "$edited_command"
+
+    # Clean up the temporary file
+    rm "$tmpfile"
+fi
+}
 
 if [ -f ~/.bashrc.work ]; then
     source ~/.bashrc.work
