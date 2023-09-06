@@ -59,6 +59,7 @@ export PATH="$LOCAL_INSTALL_PREFIX/scripts:$PATH"
 export PATH="$LOCAL_INSTALL_PREFIX/bin:$PATH"
 alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
 alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
+alias gca="git commit -a"
 
 # Returns 0 if vim has the given command, else 1
 vim_has_command() {
