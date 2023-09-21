@@ -50,7 +50,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gc', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'ds', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -72,7 +71,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
       vim.lsp.protocol.make_client_capabilities())
 -- Setup default for some of the language servers
-local servers = { 'pyright', 'tsserver', 'texlab', 'eslint'} 
+local servers = { 'pyright', 'tsserver', 'texlab', 'eslint', 'lua_ls'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -97,7 +96,7 @@ nvim_lsp["clangd"].setup {
 nvim_lsp["html"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "vscode-html-language-server", "--stdio" }, 
+    cmd = { "vscode-html-language-server", "--stdio" },
     initOptions = {
         configurationSection = { "html", "css", "javascript" },
         embeddedLanguages = {
