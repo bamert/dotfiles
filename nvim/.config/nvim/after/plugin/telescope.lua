@@ -9,4 +9,7 @@ vim.keymap.set("n", "<leader>lg", builtin.live_grep, {})--({ cwd = vim.fn.system
 vim.keymap.set("n", "<leader>fc", builtin.git_commits, {})
 vim.keymap.set("n", "<leader>fb", builtin.git_bcommits, {})
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, {})
+vim.keymap.set("n", "<leader>lr", builtin.lsp_references, {})
+vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, {})
+vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, {})
 
