@@ -20,3 +20,5 @@ vim.keymap.set("", "<leader>mm", "<cmd>silent make<cr>")
 vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen master<cr>", {})
 vim.keymap.set("n", "<leader>dvc", "<cmd>DiffviewClose<cr>", {})
 vim.keymap.set("n", "<leader>dvr", "<cmd>DiffviewRefresh<cr>", {})
+
+vim.keymap.set('n', '<leader>gl', '<cmd>lua require("gitlink").get_git_web_link()<CR>', { noremap = true, silent = true })

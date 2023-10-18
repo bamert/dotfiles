@@ -1,11 +1,14 @@
 vim.g.mapleader = " "
 require('plugins')
+require('gitlink') -- needs to be before remap
 require('remap')
 require('lsp')
 
 require("diffview").setup({
     use_icons = false        -- Requires nvim-web-devicons
 })
+
+
 
 vim.opt.belloff = 'all'
 vim.opt.errorbells = false
