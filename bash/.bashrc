@@ -63,10 +63,6 @@ alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
 alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
 alias gp="git push"
 alias gca="git commit -a"
-ggpush() {
-    branch=$(git symbolic-ref --short HEAD)
-    git push origin "$branch"
-}
 
 
 # Returns 0 if vim has the given command, else 1
