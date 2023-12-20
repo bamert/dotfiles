@@ -63,6 +63,7 @@ alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
 alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
 alias gp="git push"
 alias gca="git commit -a"
+alias ggpush="git push origin $(git branch)"
 
 # Returns 0 if vim has the given command, else 1
 vim_has_command() {
