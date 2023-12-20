@@ -52,7 +52,9 @@ then
     alias vim="nvim"
 fi
 set -o vi # Vim mode
-export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+#export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+# Workaround for TTermux on android to correctly sow the home directory as ~
+export PS1='$(current_dir=${PWD/$HOME/\~}; echo -n $current_dir)\[\033[32m\]$(parse_git_branch)\[\033[00m\] $ '
 
 export LOCAL_INSTALL_PREFIX=~/.local
 export PATH="$LOCAL_INSTALL_PREFIX/scripts:$PATH"
