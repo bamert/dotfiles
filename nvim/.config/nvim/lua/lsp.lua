@@ -39,8 +39,7 @@ local on_attach = function(client, bufnr)
   require "lsp_signature".on_attach({
     hint_prefix="",
     floating_window=true, 
-    floating_window_above_cur_line=true,
-    max_height=2
+    floating_window_above_cur_line=true
   })
 
   -- Mappings.
