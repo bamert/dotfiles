@@ -33,4 +33,3 @@ The neovim config is completely `lua` based and does not require the vim configs
 ```
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
-#saymyname

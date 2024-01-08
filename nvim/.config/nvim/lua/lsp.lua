@@ -124,7 +124,6 @@ local mdlsp_config = {
             return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.cwd()
         end,
 }
-
 require('lspconfig.configs').mdlsp = {
   default_config = mdlsp_config
 }
