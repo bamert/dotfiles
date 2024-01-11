@@ -1,6 +1,5 @@
 ## General
 The configs in this repo are arranged such that they can be easily set up as symlinks with [GNU Stow](https://www.gnu.org/software/stow/).
-
 ```
 git clone https://github.com/bamert/dotfiles.nvim ~/dotfiles
 cd ~/dotfiles && stow tmux nvim ...

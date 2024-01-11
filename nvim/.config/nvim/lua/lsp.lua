@@ -108,3 +108,24 @@ nvim_lsp["html"].setup {
         debounce_text_changes = 150,
     }
 }
+-- Assuming '/path/to/project' is where mdlsp.py and pyproject.toml are located
+local project_root = '/home/nb/repos/lspmd'
+
+local mdlsp_config = {
+        name = 'mdlsp',
+        cmd = {"sh", "-c", "cd " .. project_root .. " && poetry run python mdlsp.py"},
+        filetypes = {"markdown"},
+        on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        root_dir = function(fname)
+            return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.cwd()
+        end,
+}
+require('lspconfig.configs').mdlsp = {
+  default_config = mdlsp_config
+}
+-- Manually adding the custom LSP server configuration
+nvim_lsp.mdlsp.setup(mdlsp_config)
