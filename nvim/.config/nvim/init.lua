@@ -81,6 +81,12 @@ vim.opt.bg = 'dark'
 vim.cmd("colorscheme gruvbox")
 vim.cmd("highlight clear SignColumn")
 
+-- add filetype for todo and use same highlighting as for md
+vim.filetype.add({
+    extension = {
+        todo = "todo",
+    },
+})
 -- leave vim test window in normal mode (don't quit on keystroke)
 --vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
 --vim.cmd("let g:test#basic#start_normal = 1") -- If using basic strategy

@@ -129,3 +129,23 @@ require('lspconfig.configs').mdlsp = {
 }
 -- Manually adding the custom LSP server configuration
 nvim_lsp.mdlsp.setup(mdlsp_config)
+
+local todo_root = '/home/nb/repos/todo'
+local todolsp_config = {
+        name = 'todolsp',
+        cmd = {"sh", "-c", "cd " .. todo_root .. " && poetry run python todolsp.py"},
+        filetypes = {"todo"},
+        on_attach = on_attach,
+        capabilities = capabilities,
+        flags = {
+            debounce_text_changes = 150,
+        },
+        root_dir = function(fname)
+            return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.cwd()
+        end,
+}
+require('lspconfig.configs').todolsp = {
+  default_config = todolsp_config
+}
+-- Manually adding the custom LSP server configuration
+nvim_lsp.todolsp.setup(todolsp_config)
