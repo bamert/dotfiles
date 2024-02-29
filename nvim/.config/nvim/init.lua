@@ -71,7 +71,13 @@ vim.opt.completeopt="menu,menuone"
 vim.opt.foldenable=false
 
 -- colorscheme
-require("gruvbox").setup({contrast = "hard"})
+require("gruvbox").setup({
+    contrast = "hard",
+    italic={
+        strings = false,
+        operators = false,
+        comments = false }
+})
 require('rose-pine').setup({
     variant = 'main',
 	dark_variant = 'main',
