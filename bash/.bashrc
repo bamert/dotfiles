@@ -63,6 +63,10 @@ alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
 alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
 alias gp="git push"
 alias gca="git commit -a"
+alias gd="git diff" 
+alias gdn="git diff --name-only" 
+alias gdp="git diff HEAD~1"
+alias gdpn="git diff HEAD~1 --name-only"
 
 
 # Returns 0 if vim has the given command, else 1
