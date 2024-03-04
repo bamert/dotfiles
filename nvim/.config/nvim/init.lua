@@ -83,7 +83,7 @@ require('rose-pine').setup({
 	dark_variant = 'main',
 })
 
-vim.opt.bg = 'dark'
+vim.opt.bg = 'light'
 vim.cmd("colorscheme gruvbox")
 vim.cmd("highlight clear SignColumn")
 
