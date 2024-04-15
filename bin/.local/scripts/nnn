@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Save the start time
+start_time=$(date +%s)
+
+# Execute the original command
+"$@"
+
+# Calculate the duration
+end_time=$(date +%s)
+duration=$((end_time - start_time))
+
+notification_message="Ran \"$@\" \n in $duration seconds"
+
+# Use the notification message in your system notification command
+system-notification "$notification_message"
