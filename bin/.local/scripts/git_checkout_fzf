@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-set -e
-git checkout $(git br | fzf) #br is a custom alias to get branches ordered by most recent
+selected_branch=$(git br | fzf)
+fzf_exit_code=$?
+if [ $fzf_exit_code -eq 0 ]; then
+    git checkout "$selected_branch"
+else
+    echo "No branch selected, checkout aborted."
+fi
