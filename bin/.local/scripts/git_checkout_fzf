@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-selected_branch=$(git br | fzf)
-fzf_exit_code=$?
-if [ $fzf_exit_code -eq 0 ]; then
-    git checkout "$selected_branch"
+# Use fzf to select a branch, capturing the output
+branch=$(git br | fzf)
+
+# Check if a branch was selected
+if [[ -n "$branch" ]]; then
+  # Remove any leading space and extract the branch name
+  branch_clean=$(echo "$branch" | sed 's/^[[:space:]]*//;s/^[* ]*//')
+  git checkout "$branch_clean"
 else
-    echo "No branch selected, checkout aborted."
+  echo "No branch selected, checkout aborted."
 fi
