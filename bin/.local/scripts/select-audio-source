@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Get a list of all available sources (audio input devices)
+sources=$(pactl list short sources)
+
+# Use fzf to select a source from the list
+selected_source=$(echo "$sources" | fzf --prompt="Select an audio input device: ")
+
+# Extract the source index from the selected line
+source_index=$(echo "$selected_source" | awk '{print $1}')
+
+# Set the default source to the selected source
+if [ -n "$source_index" ]; then
+  pactl set-default-source "$source_index"
+  # Move all current audio streams to the new source
+  for stream in $(pactl list short source-outputs | awk '{print $1}'); do
+    pactl move-source-output "$stream" "$source_index"
+  done
+  echo "Audio input switched to source index $source_index"
+else
+  echo "No source selected."
+fi

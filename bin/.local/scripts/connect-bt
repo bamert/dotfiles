@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Get a list of paired Bluetooth devices
+devices=$(bluetoothctl paired-devices | awk '{print $2, substr($0, index($0,$3))}')
+
+# Use fzf to select a device from the list
+selected_device=$(echo "$devices" | fzf --prompt="Select a Bluetooth device: ")
+
+# Extract the device MAC address from the selected line
+device_mac=$(echo "$selected_device" | awk '{print $1}')
+
+# Connect to the selected device
+if [ -n "$device_mac" ]; then
+  bluetoothctl connect "$device_mac"
+  echo "Connected to Bluetooth device $device_mac"
+else
+  echo "No device selected."
+fi

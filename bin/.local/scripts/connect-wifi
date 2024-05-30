@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#!/bin/bash
+
+# Get a list of saved Wi-Fi networks
+networks=$(nmcli connection show | grep wifi | awk -F '  +' '{print $1}')
+
+# Use fzf to select a network from the list
+selected_network=$(echo "$networks" | fzf --prompt="Select a Wi-Fi network: ")
+
+# Connect to the selected network
+if [ -n "$selected_network" ]; then
+  nmcli connection up "$selected_network"
+  echo "Connected to Wi-Fi network $selected_network"
+else
+  echo "No network selected."
+fi
+

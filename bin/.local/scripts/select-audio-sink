@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Get a list of all available sinks (audio output devices)
+sinks=$(pactl list short sinks)
+
+# Use fzf to select a sink from the list
+selected_sink=$(echo "$sinks" | fzf --prompt="Select an audio output device: ")
+
+# Extract the sink index from the selected line
+sink_index=$(echo "$selected_sink" | awk '{print $1}')
+
+# Set the default sink to the selected sink
+if [ -n "$sink_index" ]; then
+  pactl set-default-sink "$sink_index"
+  # Move all current audio streams to the new sink
+  for stream in $(pactl list short sink-inputs | awk '{print $1}'); do
+    pactl move-sink-input "$stream" "$sink_index"
+  done
+  echo "Audio output switched to sink index $sink_index"
+else
+  echo "No sink selected."
+fi
