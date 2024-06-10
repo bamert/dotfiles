@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -e
+HOST=${HOST_SEARCH_AND_DL:-$1}
+
+# Validate the input
+if [[ -z "$HOST" ]]; then
+  echo "Host and directory must be specified as the first argument."
+  exit 1
+fi
+
+# Split the host and directory
+IFS=':' read -r SSH_HOST START_DIR <<< "$HOST"
+
+# Check for second argument (optional search filename)
+if [[ -n "$2" ]]; then
+  # Search
+  CMD="find $START_DIR -type f | grep --color=never -i $2  2>/dev/null"
+else
+  # Listing
+  CMD="find $START_DIR -type f -maxdepth 1  2>/dev/null"
+fi
+
+# Connect to the remote server, execute the command, and pipe to fzf for selection
+SELECTED_FILES=$(ssh "$SSH_HOST" "$CMD" | fzf --multi --exit-0)
+
+# Check if any files were selected
+if [[ -z "$SELECTED_FILES" ]]; then
+  echo "No files selected."
+  exit 0
+fi
+
+# Download the selected files to the current working directory
+echo "$SELECTED_FILES" | while read -r FILE_PATH; do
+  scp "${SSH_HOST}:${FILE_PATH}" .
+done
