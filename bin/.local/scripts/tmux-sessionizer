@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-#set -e
+set -eu
 # adapted from https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
 # env var SCANDIRS should contain all the directories that 
 # we want to search non-recursively. For instance to find
 # ~/repos/repoa, ~/repos/repob, set SCANDIRS="~/repos"
-ensure_env_defined SCANDIRS
 # Expand the home directories
 expanded_scandirs=$(echo $SCANDIRS | sed "s/~/${HOME//\//\\/}/g")
 
