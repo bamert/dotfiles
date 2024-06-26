@@ -62,6 +62,8 @@ export PATH="$LOCAL_INSTALL_PREFIX/scripts:$PATH"
 export PATH="$LOCAL_INSTALL_PREFIX/bin:$PATH"
 alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
 alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
+gb() { if [ -z "$1" ]; then echo "No branch name provided" >&2; return 1; else git checkout -b "$1"; fi; }
+
 alias gp="git push"
 alias gca="git commit -a"
 alias gma="git merge --abort"
