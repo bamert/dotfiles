@@ -69,6 +69,8 @@ alias gd="git diff"
 alias gdn="git diff --name-only" 
 alias gdp="git diff HEAD~1"
 alias gdpn="git diff HEAD~1 --name-only"
+alias ta="tmux a"
+
 
 
 # Returns 0 if vim has the given command, else 1
