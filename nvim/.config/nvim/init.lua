@@ -8,6 +8,8 @@ require("diffview").setup({
     use_icons = false        -- Requires nvim-web-devicons
 })
 
+require('gitsigns').setup()
+
 
 
 vim.opt.belloff = 'all'
