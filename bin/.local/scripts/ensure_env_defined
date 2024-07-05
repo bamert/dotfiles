@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Similar to bash 'set -u', but allows early exit with a specific error message.
+# Usage: ensure_env_defined VAR1 VAR2 VAR3
+# Exits with 1 if any variable is undefined, otherwise exits with 0.
 for var in "$@"
 do
     if [ -z "${!var}" ]; then
