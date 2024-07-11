@@ -59,6 +59,7 @@ export PS1='$(current_dir=${PWD/$HOME/\~}; echo -n $current_dir)\[\033[32m\]$(pa
 export LOCAL_INSTALL_PREFIX=~/.local
 export CMAKE_INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX
 export PATH="$LOCAL_INSTALL_PREFIX/scripts:$PATH"
+export PATH="$LOCAL_INSTALL_PREFIX/nvim-linux64/bin:$PATH"
 export PATH="$LOCAL_INSTALL_PREFIX/bin:$PATH"
 alias prj="$LOCAL_INSTALL_PREFIX/scripts/tmux-sessionizer"
 alias gck="$LOCAL_INSTALL_PREFIX/scripts/git_checkout_fzf"
