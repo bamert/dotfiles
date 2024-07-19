@@ -67,6 +67,7 @@ gb() { if [ -z "$1" ]; then echo "No branch name provided" >&2; return 1; else g
 alias gp="git push"
 alias gca="git commit -a"
 alias gma="git merge --abort"
+alias gmm="git merge master"
 alias gd="git diff" 
 alias gdn="git diff --name-only" 
 alias gdp="git diff HEAD~1"
