@@ -95,6 +95,17 @@ vim.filetype.add({
         todo = "todo",
     },
 })
+local ensure_installed = {
+  "python", "javascript", "lua", "cpp", "typescript" -- List the languages you want automatically installed
+  -- Add any other languages you need here
+}
+require'nvim-treesitter.install'.ensure_installed(ensure_installed)
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 -- leave vim test window in normal mode (don't quit on keystroke)
 --vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
 --vim.cmd("let g:test#basic#start_normal = 1") -- If using basic strategy
