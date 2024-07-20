@@ -88,8 +88,8 @@ require('rose-pine').setup({
 vim.opt.bg = 'light'
 vim.cmd("colorscheme dayfox")
 vim.cmd("highlight clear SignColumn")
-vim.api.nvim_set_hl(0, 'Cursor', {fg = '#FFFFFF', bg = '#008000'})  -- white on green for normal mode
-vim.api.nvim_set_hl(0, 'iCursor', {fg = '#FFFFFF', bg = '#FF0000'}) -- white on red for insert mode
+-- block cursor in normal mode, vertical blinking line in insert 
+vim.o.guicursor = 'n:block-Cursor,v-c-sm-i-ci-ve:block,i:ver25-Cursor,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
 
 
 -- add filetype for todo and use same highlighting as for md
