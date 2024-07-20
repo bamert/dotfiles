@@ -86,8 +86,11 @@ require('rose-pine').setup({
 })
 
 vim.opt.bg = 'light'
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme dayfox")
 vim.cmd("highlight clear SignColumn")
+vim.api.nvim_set_hl(0, 'Cursor', {fg = '#FFFFFF', bg = '#008000'})  -- white on green for normal mode
+vim.api.nvim_set_hl(0, 'iCursor', {fg = '#FFFFFF', bg = '#FF0000'}) -- white on red for insert mode
+
 
 -- add filetype for todo and use same highlighting as for md
 vim.filetype.add({
@@ -96,7 +99,7 @@ vim.filetype.add({
     },
 })
 local ensure_installed = {
-  "python", "javascript", "lua", "cpp", "typescript" -- List the languages you want automatically installed
+  "python", "javascript", "lua", "cpp", "typescript", "vimdoc", "luadoc", "vim", "lua", "markdown" -- List the languages you want automatically installed
   -- Add any other languages you need here
 }
 require'nvim-treesitter.install'.ensure_installed(ensure_installed)
