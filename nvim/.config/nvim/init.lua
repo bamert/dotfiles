@@ -86,8 +86,11 @@ require('rose-pine').setup({
 })
 
 vim.opt.bg = 'light'
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme dayfox")
 vim.cmd("highlight clear SignColumn")
+-- block cursor in normal mode, vertical blinking line in insert 
+vim.o.guicursor = 'n:block-Cursor,v-c-sm-i-ci-ve:block,i:ver25-Cursor,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
+
 
 -- add filetype for todo and use same highlighting as for md
 vim.filetype.add({
@@ -95,6 +98,17 @@ vim.filetype.add({
         todo = "todo",
     },
 })
+local ensure_installed = {
+  "python", "javascript", "lua", "cpp", "typescript", "vimdoc", "luadoc", "vim", "lua", "markdown" -- List the languages you want automatically installed
+  -- Add any other languages you need here
+}
+require'nvim-treesitter.install'.ensure_installed(ensure_installed)
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
 -- leave vim test window in normal mode (don't quit on keystroke)
 --vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
 --vim.cmd("let g:test#basic#start_normal = 1") -- If using basic strategy

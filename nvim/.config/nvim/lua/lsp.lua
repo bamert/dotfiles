@@ -72,7 +72,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
       vim.lsp.protocol.make_client_capabilities())
 -- Setup default for some of the language servers
-local servers = { 'pyright', 'tsserver', 'texlab', 'eslint', 'lua_ls', 'ruff'}
+local servers = { 'pyright', 'tsserver', 'texlab', 'eslint', 'ruff'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
