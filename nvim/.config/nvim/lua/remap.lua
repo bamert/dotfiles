@@ -25,3 +25,4 @@ vim.keymap.set('n', '<leader>gl', '<cmd>lua require("gitlink").get_git_web_link(
 
 vim.cmd('command! Gca Git commit -a')
 vim.cmd('command! Gp Git push')
+
