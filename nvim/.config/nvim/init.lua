@@ -86,7 +86,7 @@ require('rose-pine').setup({
 })
 
 vim.opt.bg = 'light'
-vim.cmd("colorscheme dayfox")
+vim.cmd("colorscheme duskfox")
 vim.cmd("highlight clear SignColumn")
 -- block cursor in normal mode, vertical blinking line in insert 
 vim.o.guicursor = 'n:block-Cursor,v-c-sm-i-ci-ve:block,i:ver25-Cursor,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
