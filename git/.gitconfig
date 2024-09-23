@@ -8,5 +8,6 @@
   lgm = log --merges --pretty=format:'%h - %s' master
   lg = !"git lg1"
   br = branch --sort=-committerdate
+  mu = "!git merge origin/$(git symbolic-ref --short HEAD)"
 [include]
     path = ~/.gituser
