@@ -29,6 +29,7 @@ vim.opt.expandtab=true
 vim.opt.cursorline=true
 vim.opt.timeoutlen=1000
 vim.opt.ttimeoutlen=10
+vim.opt.wrap = true
 
 -- open new splits on right and below
 vim.opt.splitbelow=true
