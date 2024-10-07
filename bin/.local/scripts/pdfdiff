@@ -5,21 +5,12 @@ if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <pdf1> <pdf2>"
     exit
 fi
-
-
-# Assign arguments to variables
-PDF1=$1
-PDF2=$2
-
-# Extract text from the PDFs
 TXT1=$(mktemp --suffix=.txt)
 TXT2=$(mktemp --suffix=.txt)
 
-pdftotext "$PDF1" "$TXT1"
-pdftotext "$PDF2" "$TXT2"
+pdftotext "$1" "$TXT1"
+pdftotext "$2" "$TXT2"
 
-# Use colordiff to show differences between the text files
 colordiff "$TXT1" "$TXT2"
 
-# Clean up temporary files
 rm -f "$TXT1" "$TXT2"
