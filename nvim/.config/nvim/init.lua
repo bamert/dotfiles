@@ -81,10 +81,6 @@ require("gruvbox").setup({
         operators = false,
         comments = false }
 })
-require('rose-pine').setup({
-    variant = 'main',
-	dark_variant = 'main',
-})
 
 vim.opt.bg = 'light'
 vim.cmd("colorscheme duskfox")
