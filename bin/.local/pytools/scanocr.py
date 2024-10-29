@@ -12,7 +12,7 @@ def ocr_pdf_to_text(pdf_path:str, lang:Literal['deu', 'eng']):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Extracts text from scanned document (PDF containing images) using OCR\n ensure ")
+    parser = argparse.ArgumentParser(description="Extracts text from scanned document (PDF containing images) using OCR")
     parser.add_argument("pdf_path", help="Path to the scanned PDF file containing images.")
     parser.add_argument(
         "-l", "--language", help="Language for OCR ('en' for English, 'de' for German). Default is 'de'.", default='de'
