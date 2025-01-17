@@ -1,0 +1,40 @@
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Super"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x0000ee"
+cyan = "0x00cdcd"
+green = "0x00cd00"
+magenta = "0xcd00cd"
+red = "0xcd0000"
+white = "0xe5e5e5"
+yellow = "0xcdcd00"
+
+[colors.primary]
+background = "#000000"
+foreground = "#eeeeee"
+
+[font]
+size = 13
+
+[font.bold]
+family = "Iosevka"
+style = "Bold"
+
+[font.italic]
+family = "Iosevka"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka"
+style = "Light"
+
+[keyboard]
