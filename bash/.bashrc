@@ -78,6 +78,10 @@ alias gdp="git diff HEAD~1"
 alias gdpn="git diff HEAD~1 --name-only"
 alias ta="tmux a"
 
+alias fcd='cd "$(find . -type d -print | sort | fzf)"'
+alias fls='ls "$(find . -type d -print | sort | fzf)"'
+alias to='open "$(find . d -print | sort | fzf)"'
+
 
 
 # Returns 0 if vim has the given command, else 1
