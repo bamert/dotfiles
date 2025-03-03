@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 require('plugins')
 require('gitlink') -- needs to be before remap
+require('browseropen')
 require('remap')
 require('lsp')
 
@@ -83,7 +84,7 @@ require("gruvbox").setup({
 })
 
 vim.opt.bg = 'light'
-vim.cmd("colorscheme duskfox")
+vim.cmd("colorscheme dayfox")
 vim.cmd("highlight clear SignColumn")
 -- block cursor in normal mode, vertical blinking line in insert 
 vim.o.guicursor = 'n:block-Cursor,v-c-sm-i-ci-ve:block,i:ver25-Cursor,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
@@ -109,3 +110,7 @@ require'nvim-treesitter.configs'.setup {
 -- leave vim test window in normal mode (don't quit on keystroke)
 --vim.cmd("let g:test#neovim#start_normal = 1") -- If using neovim strategy
 --vim.cmd("let g:test#basic#start_normal = 1") -- If using basic strategy
+vim.api.nvim_create_user_command('Make', function(opts)
+  local args = opts.args or ""
+  vim.cmd("!make " .. args)
+end, { nargs = "*" })
