@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 require('plugins')
 require('gitlink') -- needs to be before remap
-require('browseropen')
 require('remap')
 require('lsp')
 
